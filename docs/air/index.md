@@ -9,8 +9,86 @@ We'll focus on loading from the GDC API with Python here in the "air" folder.
 Examples of datacommons.org [API used in Python](https://docs.datacommons.org/api/python/)
 
 
-[Observable data loaders- for Python?](https://observablehq.com/framework/loaders) - mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader. 
+[Observable data loaders - for Python?](https://observablehq.com/framework/loaders) - Mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader. 
 
 Kargil adds: We want to get the input values from the user through our HTML, then pass them to the Python data loader and display that data on our front end.
 
-Loren adds: We may need to find a hosted service like Streamlit to provide real-time server-side Python calls to the GDC API. Maybe Google offers a hosting process for server-side calls to their API. Would be cool to simply call a hosted Google Colab with a JSON REST query to get back results. Is that doable?
+Loren adds: For interactivity with scalability and speed, javascript interacting with the API is perferable. For pre-loading, we'll use python with a hosted json service. It will be slower, but a Google Colab with JSON REST could probably fetch from GDC API. (Basically one API hitting another API.)
+
+---
+
+### An attempt to async and await
+
+Javascript and python [Data Loader samples from Observable](https://observablehq.com/framework/getting-started#next-steps).
+
+The javascript fetches json with this cmd
+
+	node docs/air/data/forecast.json.js
+
+The python requires running "python"
+
+	python docs/air/data/forecast.json.py
+
+So it seems that python cannot be built from the `yarn build` &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or from a Google CoLab API.
+
+What are the steps for saving a file when Observable builds?
+
+---
+
+This is not working yet.  Attempted to add "await" to sample from page above.
+```js
+const forecast = FileAttachment("./data/forecast.json.js").json();
+
+/#
+async function fetchData() {
+    const forecast = await FileAttachment("./data/forecast.json.js").json()
+	    .then(response => response.json() => {
+	    	console.log("got it")
+	    	//display(temperaturePlot(response));
+	    })
+	    .catch(error => {
+	        console.error('Error fetching forecast data:', error);
+	        return null; // or handle the error appropriately
+	    });
+    # return forecast;
+}
+fetchData();
+#/
+
+display await (temperaturePlot(forecast));
+
+function temperaturePlot(data, {width} = {}) {
+  return Plot.plot({
+    title: "Hourly temperature forecast",
+    width,
+    x: {type: "utc", ticks: "day", label: null},
+    y: {grid: true, inset: 10, label: "Degrees (F)"},
+    marks: [
+      Plot.lineY(data.properties.periods, {
+        x: "startTime",
+        y: "temperature",
+        z: null, // varying color, not series
+        stroke: "temperature",
+        curve: "step-after"
+      })
+    ]
+  });
+}
+display(
+  Plot.plot({
+    title: "Hourly temperature forecast",
+    x: {type: "utc", ticks: "day", label: null},
+    y: {grid: true, inset: 10, label: "Degrees (F)"},
+    marks: [
+      Plot.lineY(forecast.properties.periods, {
+        x: "startTime",
+        y: "temperature",
+        z: null, // varying color, not series
+        stroke: "temperature",
+        curve: "step-after"
+      })
+    ]
+  })
+);
+```
+

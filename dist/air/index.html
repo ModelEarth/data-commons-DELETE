@@ -58,8 +58,25 @@ import "../_observablehq/client.js";
 <p>Goal 13. Greenhouse Gas Reduction Climate Action</p>
 <p>We'll focus on loading from the GDC API with Python here in the "air" folder.</p>
 <p>Examples of datacommons.org <a href="https://docs.datacommons.org/api/python/">API used in Python</a></p>
-<p><a href="https://observablehq.com/framework/loaders">Observable data loaders- for Python?</a> - mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader.</p>
+<p><a href="https://observablehq.com/framework/loaders">Observable data loaders - for Python?</a> - Mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader.</p>
 <p>Kargil adds: We want to get the input values from the user through our HTML, then pass them to the Python data loader and display that data on our front end.</p>
+<p>Loren adds: For interactivity with scalability and speed, javascript interacting with the API is perferable. For pre-loading, we'll use python with a hosted json service. It will be slower, but a Google Colab with JSON REST could probably fetch from GDC API. (Basically one API hitting another API.)</p>
+<hr>
+<h3 id="an-attempt-to-async-and-await" tabindex="-1"><a class="observablehq-header-anchor" href="#an-attempt-to-async-and-await">An attempt to async and await</a></h3>
+<p>Javascript and python <a href="https://observablehq.com/framework/getting-started#next-steps">Data Loader samples from Observable</a>.</p>
+<p>The javascript fetches json with this cmd</p>
+<pre><code>node docs/air/data/forecast.json.js
+</code></pre>
+<p>The python requires running "python"</p>
+<pre><code>python docs/air/data/forecast.json.py
+</code></pre>
+<p>So it seems that python cannot be built from the <code>yarn build</code> &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or from a Google CoLab API.</p>
+<p>What are the steps for saving a file when Observable builds?</p>
+<hr>
+<p>This is not working yet.  Attempted to add "await" to sample from page above.</p>
+<div class="observablehq observablehq--block">
+  <div class="observablehq--inspect observablehq--error">SyntaxError: Unterminated regular expression (3:1)</div>
+</div>
 </main>
 <footer id="observablehq-footer">
 <div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Projects Team</a>.</div>
