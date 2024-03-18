@@ -1,3 +1,5 @@
+# Not used here, but you can run with a cmd
+
 import json
 import requests
 import sys

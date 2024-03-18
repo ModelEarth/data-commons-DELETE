@@ -1,6 +1,6 @@
 [Data Commons](../)
 
-# Air and Climage
+# Air and Climate
 
 Goal 13. Greenhouse Gas Reduction Climate Action
 
@@ -35,27 +35,32 @@ What are the steps for saving a file when Observable builds?
 
 ---
 
-This is not working yet.  Attempted to add "await" to sample from page above.
-```js
-const forecast = FileAttachment("./data/forecast.json.js").json();
+## Prerender api.weather.gov with .js
 
-/#
+Saves a file when Observable builds using data/forecast.json.js.  
+Added "async function fetchData()" since "display (forecast)"" returned "Promise{}"
+
+```js
+// Important: Remove ".js" from forecast.json.js
+// Pre-render json from the .js file into dist _file/air/data
+const forecast = FileAttachment("./data/forecast.json").json();
+
+//display (forecast); // BUG: Displays: Promise {}
+//display (temperaturePlot(forecast));
+
 async function fetchData() {
-    const forecast = await FileAttachment("./data/forecast.json.js").json()
-	    .then(response => response.json() => {
-	    	console.log("got it")
-	    	//display(temperaturePlot(response));
-	    })
-	    .catch(error => {
-	        console.error('Error fetching forecast data:', error);
-	        return null; // or handle the error appropriately
-	    });
-    # return forecast;
+    const forecast = await FileAttachment("./data/forecast.json").json()
+    .then(response => {
+    	console.log("got it")
+    	display(temperaturePlot(response));
+    })
+    .catch(error => {
+        console.error('Error fetching forecast data:', error);
+        //return null; or handle the error appropriately
+    });
+    // return forecast;
 }
 fetchData();
-#/
-
-display await (temperaturePlot(forecast));
 
 function temperaturePlot(data, {width} = {}) {
   return Plot.plot({
@@ -74,6 +79,9 @@ function temperaturePlot(data, {width} = {}) {
     ]
   });
 }
+
+
+/*
 display(
   Plot.plot({
     title: "Hourly temperature forecast",
@@ -90,5 +98,6 @@ display(
     ]
   })
 );
+*/
 ```
 
