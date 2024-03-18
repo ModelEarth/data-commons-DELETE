@@ -154,6 +154,8 @@ return {forecast,fetchData,temperaturePlot};
 <nav>
 <div>Contents</div>
 <ol>
+<li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
+<li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#prerender-api.weather.gov-with-.js">Prerender api.weather.gov with .js</a></li>
 </ol>
 </nav>
@@ -163,18 +165,19 @@ return {forecast,fetchData,temperaturePlot};
 <p><a href="../">Data Commons</a></p>
 <h1 id="air-and-climate" tabindex="-1"><a class="observablehq-header-anchor" href="#air-and-climate">Air and Climate</a></h1>
 <p>Goal 13. Greenhouse Gas Reduction Climate Action</p>
-<p>We'll focus on loading from the GDC API with Python here in the "air" folder.</p>
-<p>Examples of datacommons.org <a href="https://docs.datacommons.org/api/python/">API used in Python</a></p>
-<p><a href="https://observablehq.com/framework/loaders">Observable data loaders - for Python?</a> - Mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader.</p>
-<p>Kargil adds: We want to get the input values from the user through our HTML, then pass them to the Python data loader and display that data on our front end.</p>
-<p>Loren adds: For interactivity with scalability and speed, javascript interacting with the API is perferable. For pre-loading, we'll use python with a hosted json service. It will be slower, but a Google Colab with JSON REST could probably fetch from GDC API. (Basically one API hitting another API.)</p>
 <hr>
-<h3 id="an-attempt-to-async-and-await" tabindex="-1"><a class="observablehq-header-anchor" href="#an-attempt-to-async-and-await">An attempt to async and await</a></h3>
+<h2 id="python-for-google-data-commons-api" tabindex="-1"><a class="observablehq-header-anchor" href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></h2>
+<p><a href="https://docs.datacommons.org/api/python/">Datacommons.org API used in Python</a></p>
+<p>TO DO: Link to a CoLab and load from GDC API with Python.</p>
+<p>TO DO: Invoke our CoLab with REST JSON for Web interactivity.</p>
+<hr>
+<h2 id="building-json-and-fetching-with-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></h2>
+<p><a href="https://observablehq.com/framework/loaders">Observable data loaders</a></p>
 <p>Javascript and python <a href="https://observablehq.com/framework/getting-started#next-steps">Data Loader samples from Observable</a>.</p>
 <p>The javascript fetches json with this cmd</p>
 <pre><code>node docs/air/data/forecast.json.js
 </code></pre>
-<p>The python requires running "python"</p>
+<p>The python requires running "python" external to Observable build.</p>
 <pre><code>python docs/air/data/forecast.json.py
 </code></pre>
 <p>So it seems that python cannot be built from the <code>yarn build</code> &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or from a Google CoLab API.</p>

@@ -4,20 +4,21 @@
 
 Goal 13. Greenhouse Gas Reduction Climate Action
 
-We'll focus on loading from the GDC API with Python here in the "air" folder.
+---
 
-Examples of datacommons.org [API used in Python](https://docs.datacommons.org/api/python/)
+## Python for Google Data Commons API
 
+[Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
 
-[Observable data loaders - for Python?](https://observablehq.com/framework/loaders) - Mentions that Python data loader would be invoked before the md file build, and the md file can access the data generated from the Python data loader. 
+TO DO: Link to a CoLab and load from GDC API with Python.
 
-Kargil adds: We want to get the input values from the user through our HTML, then pass them to the Python data loader and display that data on our front end.
-
-Loren adds: For interactivity with scalability and speed, javascript interacting with the API is perferable. For pre-loading, we'll use python with a hosted json service. It will be slower, but a Google Colab with JSON REST could probably fetch from GDC API. (Basically one API hitting another API.)
+TO DO: Invoke our CoLab with REST JSON for Web interactivity.
 
 ---
 
-### An attempt to async and await
+## Building json and Fetching with Data Loader
+
+[Observable data loaders](https://observablehq.com/framework/loaders) 
 
 Javascript and python [Data Loader samples from Observable](https://observablehq.com/framework/getting-started#next-steps).
 
@@ -25,7 +26,7 @@ The javascript fetches json with this cmd
 
 	node docs/air/data/forecast.json.js
 
-The python requires running "python"
+The python requires running "python" external to Observable build.
 
 	python docs/air/data/forecast.json.py
 
