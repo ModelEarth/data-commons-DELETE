@@ -30,9 +30,7 @@ The python requires running "python" external to Observable build.
 
 	python docs/air/data/forecast.json.py
 
-So it seems that python cannot be built from the `yarn build` &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or from a Google CoLab API.
-
-What are the steps for saving a file when Observable builds?
+Python cannot be built from the `yarn build` &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or through a Google CoLab API.
 
 ---
 
