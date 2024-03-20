@@ -1,8 +1,15 @@
 # Data Commons
 
-[The Python Data Loaders](https://docs.datacommons.org/tutorials/) are simpler than the JS ones. In Python, you do not need to handle the crazy API call templates. Finding DCID and property is just one problem in JS, another problem is handling different JSON structures, which is not an issue in Python, as can be seen in this [CoLab&nbsp;for&nbsp;Census&nbsp;Data](https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb).
+[The Python Data Loaders](https://docs.datacommons.org/tutorials/) are simpler than the JS ones. In Python, you do not need to handle the crazy API call templates. Finding DCID and property is just one problem in JS, another problem is handling different JSON structures, which is not an issue when using the Python libraries, as can be seen in this [CoLab&nbsp;for&nbsp;Census&nbsp;Data](https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb).
 
-[We're automating visualizations of the UN Goals Section](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) within the [Statistical Variable Explorer](https://datacommons.org/tools/statvar) for our [Earthscape Chatbot UI fork](/earthscape) - Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with [fewer hierarchy levels](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&sv=sdg%2FSI_POV_EMP1.AGE--Y15T24).<br>
+[We're automating visualizations of the UN Goals Section](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) within the [Statistical Variable Explorer](https://datacommons.org/tools/statvar) for our [Earthscape Chatbot UI fork](/earthscape) - Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with [fewer hierarchy levels](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&sv=sdg%2FSI_POV_EMP1.AGE--Y15T24).
+
+Here are our two active CoLabs for the Google Data Commons API:
+1. [GDC-API-Caller CoLab](https://colab.research.google.com/drive/1phXc8z9IwmG9w83JTU4pXRv6XAV9a8BB?usp=sharing) - Directly calls the Google Data Commons API - Anna
+2. [GDC-Parameters CoLab](https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo?usp=sharing) - Sends parameters to our caller, then works with fetched json data - Paul  
+
+Copy the GDC-Parameters CoLab are rename it in your goal folder: GDC-Parameters-Air, etc.
+Store the output in your goal's data subfolder. Let's figure out if we can call the CoLabs from Javascript.
 
 ## Goal Visualization
 
