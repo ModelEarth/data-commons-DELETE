@@ -1,8 +1,7 @@
 [Data Commons](../)
 
-# API Tests
-<br>
-
+# API Tests<hr>
+Experiments with using Javascript to call Google Data Commons API.
 <!--
 # Good Paying Jobs
 Goal 1. No Poverty - Good Paying Jobs and Assistance
@@ -158,6 +157,8 @@ Pass a list in the properties column.
     DCID: geoID/13
     Property: ->[nearbyPlaces, landArea]
 
+
+The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
 
 ```js
   function addSuggestionToInput(suggestion, inputId) {

@@ -13,6 +13,8 @@
 loadMarkdown("index.md", "readmeDiv", "_parent");
 </script>
 
+<script src="https://datacommons.org/datacommons.js"></script>
+
 <style>
 </style>
 </head>
@@ -22,7 +24,7 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
 <div class="content contentpadding">
 
 Embedded GDC Charts. How do we display multiple lines in one GDC chart?
-<script src="https://datacommons.org/datacommons.js"></script>
+<!-- Uses datacommons.js script above. datacommons.js moved into head tag because #readmeDiv was not consistently available to loadMarkdown() -->
 <datacommons-line
   header="Iceland Population Over Time"
   group="country"
