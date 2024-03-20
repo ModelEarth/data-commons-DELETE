@@ -1,6 +1,6 @@
 [Data Commons](../)
 
-# Inclusive
+# Inclusion
 
 Goal 10. Reducing Inequalities
 

@@ -17,7 +17,7 @@ export default {
     {name: "Energy", path: "/energy"},
     {name: "Healthy Economies", path: "/economy"},
     {name: "Local Innovation", path: "/innovation"},
-    {name: "Inclusive", path: "/inclusive"},
+    {name: "Inclusion", path: "/inclusion"},
     {name: "Biodiversity", path: "/biodiversity"},
     {name: "Conservation", path: "/conservation"},
     {name: "Air and Climate", path: "/air"},

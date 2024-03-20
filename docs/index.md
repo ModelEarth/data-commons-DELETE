@@ -24,7 +24,7 @@ The [UN's seventeen 30-year goals](/data-pipeline/international/), plus four sub
 7. [Energy](energy)
 8. [Healthy Economies](economy)
 9. [Innovation](innovation)
-10. [Inclusive](inclusive)
+10. [Inclusion](inclusion)
 11. [Biodiversity](biodiversity)
 12. [Conservation](conservation)
 13. [Air and Climate](air)
