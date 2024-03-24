@@ -95,7 +95,7 @@ def load_data_from_json(file_path):
     return data
 
 # Path to the JSON file containing the dataset
-file_name = "data_sorted.json"
+file_name = "EN_ATM_GHGT_AIP_Data.json"
 file_path = os.path.join(current_directory, file_name)
 
 
