@@ -10,7 +10,7 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 [Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
 
-TO DO: Link to a CoLab and load from GDC API with Python.
+[Our CoLab for emission timelines](https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo#scrollTo=2gMBtmu1MGfq&line=19&uniqifier=1) - Loads from GDC API with Python - Paul
 
 TO DO: Invoke our CoLab with REST JSON for Web interactivity.
 
