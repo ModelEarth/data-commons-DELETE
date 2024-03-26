@@ -40,7 +40,18 @@ The [UN's seventeen 30-year goals](/data-pipeline/international/), plus four sub
 
 Finding DCID and property is one challenge in JavaScript, another is handling different JSON structures, which is not an issue when using the Python libraries, as can be seen in this [CoLab&nbsp;for&nbsp;Census&nbsp;Data](https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb).
 
-
+**Our Universal Filter Menus:**  
+Age  
+Income  
+Gender  
+Education  
+<!--
+The gender filter options could be:
+- Male and Female (two lines)
+- Female Only
+- Male Only
+- Combined (one line)
+-->
 <style>
 table {
     display: block;
