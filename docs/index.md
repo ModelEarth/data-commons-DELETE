@@ -36,7 +36,7 @@ The [UN's seventeen 30-year goals](/data-pipeline/international/), plus four sub
 21. [Expanding Livable Zones](space)
 <br><br>
 
-[The Python Data Loaders](https://docs.datacommons.org/tutorials/) are simpler than the JS ones. We'll instead send REST to our Python Colabs to interact with the GDC API.
+[The Python Data Loaders](https://docs.datacommons.org/tutorials/) are simpler than the Javascript ones. We'll instead send REST from Javascript to our Python Colabs to interact with the GDC API.
 
 Finding DCID and property is one challenge in JavaScript, another is handling different JSON structures, which is not an issue when using the Python libraries, as can be seen in this [CoLab&nbsp;for&nbsp;Census&nbsp;Data](https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb).
 
