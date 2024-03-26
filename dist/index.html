@@ -59,8 +59,7 @@ import "./_observablehq/client.js";
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
 <h1 id="data-commons" tabindex="-1"><a class="observablehq-header-anchor" href="#data-commons">Data Commons</a></h1>
-<p><a href="https://docs.datacommons.org/tutorials/">The Python Data Loaders</a> are simpler than the JS ones. In Python, you do not need to handle the crazy API call templates. Finding DCID and property is just one problem in JS, another problem is handling different JSON structures, which is not an issue when using the Python libraries, as can be seen in this <a href="https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb">CoLab&nbsp;for&nbsp;Census&nbsp;Data</a>.</p>
-<p><a href="https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&amp;d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase">We're automating visualizations of the UN Goals Section</a> within the <a href="https://datacommons.org/tools/statvar">Statistical Variable Explorer</a> for our <a href="/earthscape">Earthscape Chatbot UI fork</a> - Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with <a href="https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&amp;d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&amp;sv=sdg%2FSI_POV_EMP1.AGE--Y15T24">fewer hierarchy levels</a>.</p>
+<p><a href="https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&amp;d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase">We're automating multi-country timelines for the UN Goals Section</a> within the <a href="https://datacommons.org/tools/statvar">Statistical Variable Explorer</a> for our <a href="/earthscape/app/">Earthscape Chatbot UI fork</a> - Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with <a href="https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&amp;d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&amp;sv=sdg%2FSI_POV_EMP1.AGE--Y15T24">fewer hierarchy levels</a>.</p>
 <p>Here are our two active CoLabs for the Google Data Commons API:</p>
 <ol>
 <li><a href="https://colab.research.google.com/drive/1phXc8z9IwmG9w83JTU4pXRv6XAV9a8BB?usp=sharing">GDC-API-Caller CoLab</a> - Directly calls the Google Data Commons API - Anna</li>
@@ -94,6 +93,8 @@ Store the output in your goal's data subfolder. Let's figure out if we can call 
 <li><a href="space">Expanding Livable Zones</a>
 <br><br></li>
 </ol>
+<p><a href="https://docs.datacommons.org/tutorials/">The Python Data Loaders</a> are simpler than the JS ones. We'll instead send REST to our Python Colabs to interact with the GDC API.</p>
+<p>Finding DCID and property is one challenge in JavaScript, another is handling different JSON structures, which is not an issue when using the Python libraries, as can be seen in this <a href="https://colab.research.google.com/github/datacommonsorg/api-python/blob/master/notebooks/analyzing_census_data.ipynb">CoLab&nbsp;for&nbsp;Census&nbsp;Data</a>.</p>
 <style>
 table {
     display: block;
