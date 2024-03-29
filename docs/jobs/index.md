@@ -157,8 +157,9 @@ Pass a list in the properties column.
     DCID: geoID/13
     Property: ->[nearbyPlaces, landArea]
 
-
+<!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
+-->
 
 ```js
   function addSuggestionToInput(suggestion, inputId) {
