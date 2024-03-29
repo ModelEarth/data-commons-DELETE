@@ -114,6 +114,8 @@ Placed in a span or div tag for [built version](../../dist/air/).
   variables="Count_Person"
 ></datacommons-line>
 </span>
+<span style="font-size: 11px;">
 <a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
 <a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
+</span>
 
