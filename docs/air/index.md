@@ -99,4 +99,18 @@ display(
 );
 */
 ```
+---
+<br>
 
+## Embed of GDC Component
+
+Placed in a span or div tag for [built version](../../dist/air/).
+
+<span>
+<script src="https://datacommons.org/datacommons.js"></script>
+<datacommons-line
+  header="Population for USA, India, and China"
+  places="country/USA country/IND country/CHN"
+  variables="Count_Person"
+></datacommons-line>
+</span>

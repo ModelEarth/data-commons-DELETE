@@ -157,6 +157,7 @@ return {forecast,fetchData,temperaturePlot};
 <li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
 <li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#prerender-api.weather.gov-with-.js">Prerender api.weather.gov with .js</a></li>
+<li class="observablehq-secondary-link"><a href="#embed-of-gdc-component">Embed of GDC Component</a></li>
 </ol>
 </nav>
 </aside>
@@ -186,6 +187,14 @@ return {forecast,fetchData,temperaturePlot};
 <p>Saves a file when Observable builds using data/forecast.json.js.<br>
 Added "async function fetchData()" since "display (forecast)"" returned "Promise{}"</p>
 <div id="cell-6131c93f" class="observablehq observablehq--block"></div>
+<hr>
+<br>
+<h2 id="embed-of-gdc-component" tabindex="-1"><a class="observablehq-header-anchor" href="#embed-of-gdc-component">Embed of GDC Component</a></h2>
+<p>Placed in a span or div tag for <a href="../../dist/air/">built version</a>.</p>
+<span>
+<script src="https://datacommons.org/datacommons.js"></script>
+<datacommons-line header="Population for USA, India, and China" places="country/USA country/IND country/CHN" variables="Count_Person"></datacommons-line>
+</span>
 </main>
 <footer id="observablehq-footer">
 <div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Projects Team</a>.</div>
