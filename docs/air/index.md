@@ -10,7 +10,7 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 [Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
 
-TO DO: Link to a CoLab and load from GDC API with Python.
+[Our CoLab for emission timelines](https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo#scrollTo=2gMBtmu1MGfq&line=19&uniqifier=1) - Loads from GDC API with Python - Paul
 
 TO DO: Invoke our CoLab with REST JSON for Web interactivity.
 
@@ -99,4 +99,23 @@ display(
 );
 */
 ```
+---
+<br>
+
+## Embed of GDC Component
+
+Placed in a span or div tag for [built version](../../dist/air/).
+
+<span>
+<script src="https://datacommons.org/datacommons.js"></script>
+<datacommons-line
+  header="Population for USA, India, and China"
+  places="country/USA country/IND country/CHN"
+  variables="Count_Person"
+></datacommons-line>
+</span>
+<span style="font-size: 11px;">
+<a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
+<a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
+</span>
 
