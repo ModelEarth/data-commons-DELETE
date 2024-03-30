@@ -166,6 +166,15 @@ table td {
 </tr>
 </tbody>
 </table>
+<br>
+When running "yarn build" the content of the docs folder is built into the dist folder.  The dist folder gets deleted each time the build is run. ("npm run build" is the equivalent cmd to use when the repo wasn't initiated with a yarn.lock file.) 
+<p>dist/ deployment is omitted within .ignore.
+This allows us to avoid having merge conflicts.</p>
+<p>index.html does not get built to dist. We add index.html to repos so we can insert localsite.js navigation. Sometimes we also put standard html in the index.html file, especially if it's not working in the build to dist.</p>
+<p>Placing a span or div tag around the GDC-embeds in index.md allows them to work in the built dist output.</p>
+<p>We can probably auto-build to dist when deploying to GitHub.
+Try using the deploy.js sample Mike Bostock posted:
+<a href="https://github.com/observablehq/framework/discussions/1030">https://github.com/observablehq/framework/discussions/1030</a></p>
 <p><a href="../">Our Setup Notes</a></p>
 </main>
 <footer id="observablehq-footer">
