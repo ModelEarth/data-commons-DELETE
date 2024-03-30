@@ -28,9 +28,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function updateGraph(selectedCountries, graphType) {
     const data = await dbClient.queryData(); // Assuming dbClient has a method queryData to fetch data
-    const selectedCountries = viewof countrySelect.value;
-    const graphType = viewof graphTypeSelect.value; // Assume this exists
-    updateGraph(selectedCountries, graphType); // This function will need to be defined to actually update the graph
+    // Assuming you have a function named "updateGraph" to handle graph updates
+    updateGraphWithData(data, selectedCountries, graphType);
+  }
+
+  async function updateGraphWithData(data, selectedCountries, graphType) {
+    // Implement graph update logic here using the fetched data and selected countries/graph type
+    console.log("Updating graph with data:", data);
+    console.log("Selected countries:", selectedCountries);
+    console.log("Graph type:", graphType);
   }
 
   loadData();
