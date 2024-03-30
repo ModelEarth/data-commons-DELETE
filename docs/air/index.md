@@ -5,6 +5,111 @@
 Goal 13. Greenhouse Gas Reduction Climate Action
 
 ---
+js:
+const db = DuckDBClient.of({ air: FileAttachment("data/EN_ATM_GHGT_AIP_Series.json").json() });
+---
+
+---
+title: Emissions Data Visualizations
+layout: |
+  <div>
+    <select id="country-select" multiple>
+      <option value="USA">USA</option>
+      <!-- Add options dynamically using JavaScript -->
+    </select>
+    <select id="graph-type-select">
+      <option value="line">Line Graph</option>
+      <option value="heatmap">Heatmap</option>
+      <option value="area">Stacked Area Plot</option>
+      <option value="pie">Pie Chart</option>
+    </select>
+    <div id="EN_ATM_GHGT_AIP_Data-graph"></div>
+  </div>
+script: |
+    
+  const db = DuckDBClient.of({ air: FileAttachment("data/dcid/EN_ATM_GHGT_AIP_Series_byCountry.json").json() });
+
+  const queryData = async () => {
+    const data = await db.air;
+    return data;
+  };
+
+  const loadData = async () => {
+    const data = await queryData();
+    const countrySelect = document.getElementById("country-select");
+    countrySelect.innerHTML = "";
+    data.forEach((country) => {
+      const option = document.createElement("option");
+      option.value = country.country_code;
+      option.textContent = country.country_code;
+      countrySelect.appendChild(option);
+    });
+  };
+
+  const updateGraph = async (selectedCountries, graphType) => {
+    const data = await queryData();
+    const traces = [];
+    const layout = {
+      title: 'Emissions Data Visualization',
+      xaxis: { title: 'Year' },
+      yaxis: { title: 'Emissions (Metric Tons)' }
+    };
+
+    if (graphType === 'heatmap') {
+      // Implement heatmap visualization
+    } else if (graphType === 'pie') {
+      // Implement pie chart visualization
+    } else {
+      // Default to line or stacked area plot
+      const mode = (graphType === 'line') ? 'lines+markers' : 'lines';
+      const stackgroup = (graphType === 'area') ? 'one' : null;
+
+      selectedCountries.forEach((country) => {
+        const countryData = data.find((item) => item.country_code === country);
+        const years = countryData.data.map((data) => data.year);
+        const values = countryData.data.map((data) => data.emission);
+        traces.push({
+          x: years,
+          y: values,
+          mode: mode,
+          stackgroup: stackgroup,
+          name: country
+        });
+      });
+
+      layout.title = 'Emissions Trend';
+    }
+
+    const graphDiv = document.getElementById('EN_ATM_GHGT_AIP_Data-graph');
+    Plotly.newPlot(graphDiv, traces, layout);
+  };
+
+  loadData();
+
+  document.getElementById('country-select').addEventListener('change', () => {
+    const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map((option) => option.value);
+    const graphType = document.getElementById('graph-type-select').value;
+    updateGraph(selectedCountries, graphType);
+  });
+
+  document.getElementById('graph-type-select').addEventListener('change', () => {
+    const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map((option) => option.value);
+    const graphType = document.getElementById('graph-type-select').value;
+    updateGraph(selectedCountries, graphType);
+  });
+  
+---
+
+
+
+
+
+
+
+
+
+
+---
 
 ## Python for Google Data Commons API
 
