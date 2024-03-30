@@ -9,6 +9,7 @@
     "observable": "observable"
   },
   "dependencies": {
+    "@duckdb/duckdb-wasm": "^1.28.1-dev106.0",
     "@observablehq/framework": "latest",
     "d3-dsv": "^3.0.1",
     "d3-time-format": "^4.1.0"
