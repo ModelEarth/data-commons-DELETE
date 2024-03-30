@@ -2,13 +2,6 @@
 
 ## Goal 13: Greenhouse Gas Reduction Climate Action
 
----
-
-```js
-const db = DuckDBClient.of({ air: FileAttachment("data/EN_ATM_GHGT_AIP_Series.json").json() });
-```
----
-
 ### Emissions Data Visualizations
 
 ```html
@@ -28,7 +21,8 @@ const db = DuckDBClient.of({ air: FileAttachment("data/EN_ATM_GHGT_AIP_Series.js
 ```
 
 ```js
-const db = DuckDBClient.of({ air: FileAttachment("data/dcid/EN_ATM_GHGT_AIP_Series_byCountry.json").json() });
+const db = DuckDBClient.of({ air: FileAttachment("data/EN_ATM_GHGT_AIP_Series.json").json() });
+
 
 const queryData = async () => {
   const data = await db.air;
