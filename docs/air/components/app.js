@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function loadData() {
-    const data = await loadDataFromUrl("./dist/air/data/EN_ATM_GHGT_AIP_Series.json");
+    const data = FileAttachment("./dist/air/data/EN_ATM_GHGT_AIP_Series.json").json();
     const countrySelect = document.getElementById("country-select");
     countrySelect.innerHTML = data.map(country =>
       `<option value="${country.country_code}">${country.country_code}</option>`
