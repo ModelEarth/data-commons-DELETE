@@ -1,3 +1,4 @@
+
 # Data Commons - Air and Climate
 
 ## Goal 13: Greenhouse Gas Reduction Climate Action
@@ -7,8 +8,7 @@
 ```html
 <div>
   <select id="country-select" multiple>
-    <option value="USA">USA</option>
-    <!-- Add options dynamically using JavaScript -->
+    <!-- Options will be dynamically added by JavaScript -->
   </select>
   <select id="graph-type-select">
     <option value="line">Line Graph</option>
@@ -21,49 +21,54 @@
 ```
 
 ```js
-const db = DuckDBClient.of({ air: FileAttachment("data/EN_ATM_GHGT_AIP_Series.json").json() });
+import { DatabaseClient } from './components/dbClient.js';
+import { fetchJsonData } from './components/dataFetcher.js';
 
+  document.addEventListener('DOMContentLoaded', async () => {
+    const dbClient = new DatabaseClient();
 
-const queryData = async () => {
-  const data = await db.air;
-  return data;
-};
+    async function loadDataFromUrl(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return [];
+      }
+    }
 
-  const loadData = async () => {
-    const data = await queryData();
-    const countrySelect = document.getElementById("country-select");
-    countrySelect.innerHTML = "";
-    data.forEach((country) => {
-      const option = document.createElement("option");
-      option.value = country.country_code;
-      option.textContent = country.country_code;
-      countrySelect.appendChild(option);
+    async function loadData() {
+      const data = await loadDataFromUrl("./dist/air/data/EN_ATM_GHGT_AIP_Series.json");
+      const countrySelect = document.getElementById("country-select");
+      countrySelect.innerHTML = data.map(country =>
+        `<option value="${country.country_code}">${country.country_code}</option>`
+      ).join('');
+    }
+
+    async function updateGraph(selectedCountries, graphType) {
+      const data = await dbClient.queryData();
+      // Implement the logic for updating the graph based on 'data'
+      // This part would involve creating the traces and layout for Plotly as before
+    }
+
+    loadData();
+
+    document.getElementById('country-select').addEventListener('change', async () => {
+      const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map(option => option.value);
+      const graphType = document.getElementById('graph-type-select').value;
+      await updateGraph(selectedCountries, graphType);
     });
-  };
 
-  const updateGraph = async (selectedCountries, graphType) => {
-    const data = await queryData();
-    const traces = [];
-    const layout = {
-      title: 'Emissions Data Visualization',
-      xaxis: { title: 'Year' },
-      yaxis: { title: 'Emissions (Metric Tons)' }
-    };
-
-loadData();
-
-  document.getElementById('country-select').addEventListener('change', () => {
-    const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map((option) => option.value);
-    const graphType = document.getElementById('graph-type-select').value;
-    updateGraph(selectedCountries, graphType);
+    document.getElementById('graph-type-select').addEventListener('change', async () => {
+      const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map(option => option.value);
+      const graphType = document.getElementById('graph-type-select').value;
+      await updateGraph(selectedCountries, graphType);
+    });
   });
-
-  document.getElementById('graph-type-select').addEventListener('change', () => {
-    const selectedCountries = Array.from(document.getElementById('country-select').selectedOptions).map((option) => option.value);
-    const graphType = document.getElementById('graph-type-select').value;
-    updateGraph(selectedCountries, graphType);
-  });
-
 ```
 
 ---
@@ -131,3 +136,4 @@ Placed in a span or div tag for [built version](../../dist/air/).
 </span>
 ```
 
+````
