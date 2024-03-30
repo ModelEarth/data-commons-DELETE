@@ -20,6 +20,22 @@
 </div>
 ```
 
+```html
+<span>
+  <script src="https://datacommons.org/datacommons.js"></script>
+  <datacommons-line
+    header="Emissions Data for Various Countries"
+    places="country/AUS country/AUT country/BEL country/BGR country/BLR country/CAN country/CHE country/CYP country/CZE country/DEU country/DNK country/ESP country/EST country/FIN country/FRA country/GBR country/GRC country/HRV country/HUN country/IRL country/ISL country/ITA country/JPN country/LIE country/LTU country/LUX country/LVA country/MCO country/MLT country/NLD country/NOR country/NZL country/POL country/PRT country/ROU country/RUS country/SVK country/SVN country/SWE country/TUR country/UKR country/USA"
+    variables="EN_ATM_GHGT_AIP"
+  ></datacommons-line>
+</span>
+<span style="font-size: 11px;">
+  <a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
+  <a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
+</span>
+
+```
+
 ```js
 import { app } from './components/app.js'; 
 import { fetchJsonData } from './components/dataFetcher.js';
