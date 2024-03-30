@@ -1,11 +1,24 @@
-import { DatabaseClient } from './databaseClient.js';
+import { DatabaseClient } from './dbClient.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const dbClient = new DatabaseClient();
-  await dbClient.loadDataFromUrl("https://pchj.github.io/data-commons/dist/air/data/EN_ATM_GHGT_AIP_Series.json");
+
+  async function loadDataFromUrl(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return [];
+    }
+  }
 
   async function loadData() {
-    const data = await dbClient.queryData();
+    const data = await loadDataFromUrl("./dist/air/data/EN_ATM_GHGT_AIP_Series.json");
     const countrySelect = document.getElementById("country-select");
     countrySelect.innerHTML = data.map(country =>
       `<option value="${country.country_code}">${country.country_code}</option>`
@@ -13,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function updateGraph(selectedCountries, graphType) {
-    const data = await dbClient.queryData(); // Adjust this call as necessary
+    const data = await dbClient.queryData(); // Assuming dbClient has a method queryData to fetch data
     // Implement the logic for updating the graph based on 'data'
     // This part would involve creating the traces and layout for Plotly as before
   }
