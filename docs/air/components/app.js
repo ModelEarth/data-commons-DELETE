@@ -1,4 +1,5 @@
 import { DatabaseClient } from './dbClient.js';
+import { renderEmissionsTimeline } from './timeline.js'; // Import the visualization function
 
 document.addEventListener('DOMContentLoaded', async () => {
   const dbClient = new DatabaseClient();
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function loadData() {
-    // Assuming your server/environment serves files from the root of your project directory
     const data = await loadDataFromUrl('./dist/air/data/EN_ATM_GHGT_AIP_Series.json');
     const countrySelect = document.getElementById("country-select");
     countrySelect.innerHTML = data.map(country =>
@@ -27,16 +27,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function updateGraph(selectedCountries, graphType) {
-    const data = await dbClient.queryData(); // Assuming dbClient has a method queryData to fetch data
-    // Assuming you have a function named "updateGraph" to handle graph updates
-    updateGraphWithData(data, selectedCountries, graphType);
+    let data = await dbClient.queryData(); // Fetch all emissions data
+    // Filter data based on selected countries (if any are selected)
+    if (selectedCountries.length > 0) {
+      data = data.filter(record => selectedCountries.includes(record.country_code));
+    }
+    // For now, we ignore graphType as the timeline visualization doesn't use it
+    updateGraphWithData(data);
   }
 
-  async function updateGraphWithData(data, selectedCountries, graphType) {
-    // Implement graph update logic here using the fetched data and selected countries/graph type
-    console.log("Updating graph with data:", data);
-    console.log("Selected countries:", selectedCountries);
-    console.log("Graph type:", graphType);
+  async function updateGraphWithData(data) {
+    renderEmissionsTimeline(data); // Update the timeline graph with the filtered data
   }
 
   loadData();
