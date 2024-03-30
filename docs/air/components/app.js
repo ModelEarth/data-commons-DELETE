@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   async function loadData() {
-    const data = FileAttachment("./dist/air/data/EN_ATM_GHGT_AIP_Series.json").json();
+    // Assuming your server/environment serves files from the root of your project directory
+    const data = await loadDataFromUrl('./dist/air/data/EN_ATM_GHGT_AIP_Series.json');
     const countrySelect = document.getElementById("country-select");
     countrySelect.innerHTML = data.map(country =>
       `<option value="${country.country_code}">${country.country_code}</option>`
@@ -27,8 +28,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   async function updateGraph(selectedCountries, graphType) {
     const data = await dbClient.queryData(); // Assuming dbClient has a method queryData to fetch data
-    // Implement the logic for updating the graph based on 'data'
-    // This part would involve creating the traces and layout for Plotly as before
+    const selectedCountries = viewof countrySelect.value;
+    const graphType = viewof graphTypeSelect.value; // Assume this exists
+    updateGraph(selectedCountries, graphType); // This function will need to be defined to actually update the graph
   }
 
   loadData();
