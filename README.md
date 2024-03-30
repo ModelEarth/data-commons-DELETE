@@ -87,17 +87,3 @@ data-commons
 | `yarn deploy`     | Deploy your project to Observable                        |
 | `yarn clean`      | Clear the local data loader cache                        |
 | `yarn observable` | Run commands like `observable help`                      |
-
-
-When running "yarn build" the content of the docs folder is built into the dist folder.  The dist folder gets deleted each time the build is run. ("npm run build" is the equivalent cmd to use when the repo wasn't initiated with a yarn.lock file.) 
-
-dist/ deployment is omitted within .ignore.
-This allows us to avoid having merge conflicts.
-
-index.html does not get built to dist. We add index.html to repos so we can insert localsite.js navigation. Sometimes we also put standard html in the index.html file, especially if it's not working in the build to dist.
-
-Placing a span or div tag around the GDC-embeds in index.md allows them to work in the built dist output.
-
-We can probably auto-build to dist when deploying to GitHub.
-Try using the deploy.js sample Mike Bostock posted:
-https://github.com/observablehq/framework/discussions/1030
