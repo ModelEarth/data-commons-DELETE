@@ -3,7 +3,8 @@ import * as duckdb from '@duckdb/duckdb-wasm';
 
 export class DatabaseClient {
   constructor() {
-    this.db = new DuckDB(); 
+    this.db = new duckdb.DuckDB(); // Corrected this line
+  }
 
   async loadDataFromUrl(url) {
     const jsonData = await fetchJsonData(url);
