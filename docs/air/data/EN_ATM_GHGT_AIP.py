@@ -1,12 +1,7 @@
 import aiohttp
 import asyncio
 import json
-import pandas as pd
-import plotly.graph_objects as go
-import sys
 from datetime import datetime
-import dash
-from dash import dcc, html
 
 async def fetch_data(session, url, params):
     async with session.get(url, params=params) as response:
@@ -67,99 +62,24 @@ async def load_data_from_json(file_path):
 async def main():
     # Define country codes and file paths
     country_codes = ['AUS', 'AUT', 'BEL', 'BGR', 'BLR', 'CAN', 'CHE', 'CYP', 'CZE', 'DEU',
-                    'DNK', 'ESP', 'EST', 'FIN', 'FRA', 'GBR', 'GRC', 'HRV', 'HUN', 'IRL',
-                    'ISL', 'ITA', 'JPN', 'LIE', 'LTU', 'LUX', 'LVA', 'MCO', 'MLT', 'NLD',
-                    'NOR', 'NZL', 'POL', 'PRT', 'ROU', 'RUS', 'SVK', 'SVN', 'SWE', 'TUR',
-                    'UKR', 'USA']
+                     'DNK', 'ESP', 'EST', 'FIN', 'FRA', 'GBR', 'GRC', 'HRV', 'HUN', 'IRL',
+                     'ISL', 'ITA', 'JPN', 'LIE', 'LTU', 'LUX', 'LVA', 'MCO', 'MLT', 'NLD',
+                     'NOR', 'NZL', 'POL', 'PRT', 'ROU', 'RUS', 'SVK', 'SVN', 'SWE', 'TUR',
+                     'UKR', 'USA']
     file_name = "EN_ATM_GHGT_AIP_series.json"
-    file_path = f'data-commons/dist/air/data/dcid/{file_name}'
+    file_path = f'./{file_name}'
 
     # Fetch and combine data
     country_data = await parse_country_data(country_codes)
     EU_data = await fetch_eu_data()
     combined_data = await combine_data(country_data, EU_data)
 
-    # Save data with specified name
+    # Save data to specified path
     await save_data_to_json(combined_data, file_path)
 
-    # Load and display data
+    # Load and print an example of the saved data (optional)
     data_example = await load_data_from_json(file_path)
-    json.dump({"EN_ATM_GHGT_AIP_Data": combined_data}, sys.stdout)
-
-    # Initialize the Dash app
-    app = dash.Dash(__name__)
-
-    # Define the layout of the app
-    app.layout = html.Div([
-        dcc.Dropdown(
-            id='country-select',
-            options=[{'label': country['country_code'], 'value': country['country_code']} for country in combined_data],
-            value=['USA'],  # Default value
-            multi=True
-        ),
-        dcc.Dropdown(
-            id='graph-type-select',
-            options=[
-                {'label': 'Line Graph', 'value': 'line'},
-                {'label': 'Heatmap', 'value': 'heatmap'},
-                {'label': 'Stacked Area Plot', 'value': 'area'},
-                {'label': 'Pie Chart', 'value': 'pie'}
-            ],
-            value='line'  # Default value
-        ),
-        dcc.Graph(id='EN_ATM_GHGT_AIP_Data-graph')
-    ])
-
-    @app.callback(
-        dash.dependencies.Output('EN_ATM_GHGT_AIP_Data-graph', 'figure'),
-        [dash.dependencies.Input('country-select', 'value'),
-         dash.dependencies.Input('graph-type-select', 'value')]
-    )
-    def update_graph(selected_countries, graph_type):
-        traces = []
-        layout = {
-            'title': 'Emissions Data Visualization',
-            'xaxis': {'title': 'Year'},
-            'yaxis': {'title': 'Emissions (Metric Tons)'}
-        }
-
-        if graph_type == 'heatmap':
-            z_data = []
-            for country in selected_countries:
-                country_data = next(item for item in combined_data if item["country_code"] == country)
-                years = [data['year'] for data in country_data['data']]
-                values = [data['emission'] for data in country_data['data']]
-                z_data.append(values)
-            traces = [go.Heatmap(z=z_data, x=years, y=selected_countries)]
-            layout['title'] = 'Emissions Heatmap'
-
-        elif graph_type == 'pie':
-            total_emissions = []
-            for country in selected_countries:
-                country_data = next(item for item in combined_data if item["country_code"] == country)
-                total_emissions.append(sum(data['emission'] for data in country_data['data']))
-            traces = [go.Pie(labels=selected_countries, values=total_emissions)]
-            layout['title'] = 'Total Emissions Distribution'
-
-        else:  # Default to line or stacked area plot
-            mode = 'lines+markers' if graph_type == 'line' else 'lines'
-            stackgroup = 'one' if graph_type == 'area' else None
-
-            for country in selected_countries:
-                country_data = next(item for item in combined_data if item["country_code"] == country)
-                years = [data['year'] for data in country_data['data']]
-                values = [data['emission'] for data in country_data['data']]
-                traces.append(go.Scatter(x=years, y=values, mode=mode, stackgroup=stackgroup, name=country_data["country_code"]))
-
-            layout['title'] = 'Emissions Trend'
-
-        return {
-            'data': traces,
-            'layout': layout
-        }
-
-    # Run the app
-    app.run_server(debug=True)
+    print(data_example)
 
 # Run the main function
 asyncio.run(main())
