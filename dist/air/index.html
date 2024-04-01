@@ -10,112 +10,9 @@
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
-<link rel="modulepreload" href="../_npm/@observablehq/plot@0.6.13/+esm.js">
-<link rel="modulepreload" href="../_npm/d3@7.8.5/+esm.js">
-<link rel="modulepreload" href="../_npm/isoformat@0.2.1/+esm.js">
-<link rel="modulepreload" href="../_npm/interval-tree-1d@1.0.4/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-array@3.2.4/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-axis@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-brush@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-chord@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-color@3.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-contour@4.0.2/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-delaunay@6.0.4/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-dispatch@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-drag@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-dsv@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-ease@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-fetch@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-force@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-format@3.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-geo@3.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-hierarchy@3.1.2/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-interpolate@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-path@3.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-polygon@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-quadtree@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-random@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-scale@4.0.2/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-scale-chromatic@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-selection@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-shape@3.2.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-time@3.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-time-format@4.1.0/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-timer@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-transition@3.0.1/+esm.js">
-<link rel="modulepreload" href="../_npm/d3-zoom@3.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/binary-search-bounds@2.0.5/+esm.js">
-<link rel="modulepreload" href="../_npm/internmap@2.0.3/+esm.js">
-<link rel="modulepreload" href="../_npm/delaunator@5.0.0/+esm.js">
-<link rel="modulepreload" href="../_npm/robust-predicates@3.0.2/+esm.js">
 <script type="module">
 
-import {define} from "../_observablehq/client.js";
-import {registerFile} from "../_observablehq/stdlib.js";
-
-registerFile("./data/forecast.json", {"name":"./data/forecast.json","mimeType":"application/json","path":"../_file/air/data/forecast.07a3ef69.json"});
-
-define({id: "6131c93f", inputs: ["FileAttachment","display","Plot"], outputs: ["forecast","fetchData","temperaturePlot"], body: (FileAttachment,display,Plot) => {
-// Important: Remove ".js" from forecast.json.js
-// Pre-render json from the .js file into dist _file/air/data
-const forecast = FileAttachment("./data/forecast.json").json();
-
-//display (forecast); // BUG: Displays: Promise {}
-//display (temperaturePlot(forecast));
-
-async function fetchData() {
-    const forecast = await FileAttachment("./data/forecast.json").json()
-    .then(response => {
-    	console.log("got it")
-    	display(temperaturePlot(response));
-    })
-    .catch(error => {
-        console.error('Error fetching forecast data:', error);
-        //return null; or handle the error appropriately
-    });
-    // return forecast;
-}
-fetchData();
-
-function temperaturePlot(data, {width} = {}) {
-  return Plot.plot({
-    title: "Hourly temperature forecast",
-    width,
-    x: {type: "utc", ticks: "day", label: null},
-    y: {grid: true, inset: 10, label: "Degrees (F)"},
-    marks: [
-      Plot.lineY(data.properties.periods, {
-        x: "startTime",
-        y: "temperature",
-        z: null, // varying color, not series
-        stroke: "temperature",
-        curve: "step-after"
-      })
-    ]
-  });
-}
-
-
-/*
-display(
-  Plot.plot({
-    title: "Hourly temperature forecast",
-    x: {type: "utc", ticks: "day", label: null},
-    y: {grid: true, inset: 10, label: "Degrees (F)"},
-    marks: [
-      Plot.lineY(forecast.properties.periods, {
-        x: "startTime",
-        y: "temperature",
-        z: null, // varying color, not series
-        stroke: "temperature",
-        curve: "step-after"
-      })
-    ]
-  })
-);
-*/
-return {forecast,fetchData,temperaturePlot};
-}});
+import "../_observablehq/client.js";
 
 </script>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
@@ -156,7 +53,6 @@ return {forecast,fetchData,temperaturePlot};
 <ol>
 <li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
 <li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
-<li class="observablehq-secondary-link"><a href="#prerender-api.weather.gov-with-.js">Prerender api.weather.gov with .js</a></li>
 <li class="observablehq-secondary-link"><a href="#embed-of-gdc-component">Embed of GDC Component</a></li>
 </ol>
 </nav>
@@ -176,17 +72,10 @@ return {forecast,fetchData,temperaturePlot};
 <p><a href="https://observablehq.com/framework/loaders">Observable data loaders</a></p>
 <p>Javascript and python <a href="https://observablehq.com/framework/getting-started#next-steps">Data Loader samples from Observable</a>.</p>
 <p>The javascript fetches json with this cmd</p>
-<pre><code>node docs/air/data/forecast.json.js
-</code></pre>
+<p>node docs/air/data/forecast.json.js</p>
 <p>The python requires running "python" external to Observable build.</p>
-<pre><code>python docs/air/data/forecast.json.py
-</code></pre>
+<p>python docs/air/data/forecast.json.py</p>
 <p>Python cannot be built from the <code>yarn build</code> &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or through a Google CoLab API.</p>
-<hr>
-<h2 id="prerender-api.weather.gov-with-.js" tabindex="-1"><a class="observablehq-header-anchor" href="#prerender-api.weather.gov-with-.js">Prerender api.weather.gov with .js</a></h2>
-<p>Saves a file when Observable builds using data/forecast.json.js.<br>
-Added "async function fetchData()" since "display (forecast)"" returned "Promise{}"</p>
-<div id="cell-6131c93f" class="observablehq observablehq--block"></div>
 <hr>
 <br>
 <h2 id="embed-of-gdc-component" tabindex="-1"><a class="observablehq-header-anchor" href="#embed-of-gdc-component">Embed of GDC Component</a></h2>
