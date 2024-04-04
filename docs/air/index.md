@@ -6,6 +6,11 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 ---
 
+```js
+EN_ATM_GHGT_AIP_Series_data = await FileAttachment("./data/EN_ATM_GHGT_AIP_Series.json").json()
+
+```
+
 ## Python for Google Data Commons API
 
 [Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
