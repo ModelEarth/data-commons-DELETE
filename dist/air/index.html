@@ -51,6 +51,7 @@ import "../_observablehq/client.js";
 <nav>
 <div>Contents</div>
 <ol>
+<li class="observablehq-secondary-link"><a href="#weather-data-loader">Weather Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
 <li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#embed-of-gdc-component">Embed of GDC Component</a></li>
@@ -63,10 +64,14 @@ import "../_observablehq/client.js";
 <h1 id="air-and-climate" tabindex="-1"><a class="observablehq-header-anchor" href="#air-and-climate">Air and Climate</a></h1>
 <p>Goal 13. Greenhouse Gas Reduction Climate Action</p>
 <hr>
+<h2 id="weather-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#weather-data-loader">Weather Data Loader</a></h2>
+<p><a href="weather">View Weather Forecast</a> - Caches data from api.weather.gov</p>
+<p>TO DO: Figure out how to pull new data whenever building. Currently this can be achieved by renaming the forecast.json.js file and changing to the new .json file path in <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md">weather/index.md</a>.</p>
+<hr>
 <h2 id="python-for-google-data-commons-api" tabindex="-1"><a class="observablehq-header-anchor" href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></h2>
-<p><a href="https://docs.datacommons.org/api/python/">Datacommons.org API used in Python</a></p>
 <p><a href="https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo#scrollTo=2gMBtmu1MGfq&amp;line=19&amp;uniqifier=1">Our CoLab for emission timelines</a> - Loads from GDC API with Python - Paul</p>
-<p>TO DO: Invoke our CoLab with REST JSON for Web interactivity.</p>
+<p>Learn about <a href="https://docs.datacommons.org/api/python/">Datacommons.org API used in Python</a></p>
+<p>TO DO: Document how we invoke our CoLab with REST JSON for Web interactivity.</p>
 <hr>
 <h2 id="building-json-and-fetching-with-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></h2>
 <p><a href="https://observablehq.com/framework/loaders">Observable data loaders</a></p>
@@ -90,6 +95,6 @@ import "../_observablehq/client.js";
 </span>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Projects Team</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Project Team</a>.</div>
 </footer>
 </div>

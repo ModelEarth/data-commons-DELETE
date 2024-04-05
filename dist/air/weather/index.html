@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Air and Climate | Data Commons</title>
+<title>Weather | Data Commons</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../../_observablehq/theme-air,near-midnight.css">
@@ -53,18 +53,27 @@
 import {define} from "../../_observablehq/client.js";
 import {registerFile} from "../../_observablehq/stdlib.js";
 
-registerFile("../data/forecast.json", {"name":"../data/forecast.json","mimeType":"application/json","path":"../../_file/air/data/forecast.07a3ef69.json"});
+registerFile("./data/forecast.json", {"name":"./data/forecast.json","mimeType":"application/json","path":"../../_file/air/weather/data/forecast.78a4130a.json"});
 
-define({id: "d9a603c1", inputs: ["FileAttachment","display","Plot"], outputs: ["forecast","fetchData","temperaturePlot"], body: (FileAttachment,display,Plot) => {
-// Important: Remove ".js" from forecast.json.js
+define({id: "651cbf70", inputs: ["FileAttachment","display","Plot"], outputs: ["url","script","head","fetchData","temperaturePlot"], body: (FileAttachment,display,Plot) => {
+const url = "https://model.earth/localsite/js/localsite.js?showheader=true&showsearch=true";
+console.log("loadScript seeking: " + url);
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = url;
+var head = document.getElementsByTagName('head')[0];
+head.appendChild(script);
+
+// Important: Remove ".js" from forecast.json.js below:
 // Pre-render json from the .js file into dist _file/air/data
-const forecast = FileAttachment("../data/forecast.json").json();
+//const apiWeatherForecast = "data/forecast.json"
+//const forecast = FileAttachment(apiWeatherForecast).json();
 
 //display (forecast); // BUG: Displays: Promise {}
 //display (temperaturePlot(forecast));
 
 async function fetchData() {
-    const forecast = await FileAttachment("../data/forecast.json").json()
+    const forecast = await FileAttachment("data/forecast.json").json()
     .then(response => {
       console.log("got it")
       display(temperaturePlot(response));
@@ -114,7 +123,7 @@ display(
   })
 );
 */
-return {forecast,fetchData,temperaturePlot};
+return {url,script,head,fetchData,temperaturePlot};
 }});
 
 </script>
@@ -156,14 +165,14 @@ return {forecast,fetchData,temperaturePlot};
 </aside>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<p><a href="../">Data Commons</a></p>
-<h1 id="air-and-climate" tabindex="-1"><a class="observablehq-header-anchor" href="#air-and-climate">Air and Climate</a></h1>
+<p><a href="../">Air and Climate</a></p>
+<h1 id="weather" tabindex="-1"><a class="observablehq-header-anchor" href="#weather">Weather</a></h1>
 <h2 id="prerender-api.weather.gov-with-.js" tabindex="-1"><a class="observablehq-header-anchor" href="#prerender-api.weather.gov-with-.js">Prerender api.weather.gov with .js</a></h2>
 <p>Saves a file when Observable builds using data/forecast.json.js.<br>
 Added "async function fetchData()" since "display (forecast)"" returned "Promise{}"</p>
-<div id="cell-d9a603c1" class="observablehq observablehq--block"></div>
+<div id="cell-651cbf70" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Projects Team</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Project Team</a>.</div>
 </footer>
 </div>

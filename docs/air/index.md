@@ -6,13 +6,21 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 ---
 
-## Python for Google Data Commons API
+## Weather Data Loader
 
-[Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
+[View Weather Forecast](weather) - Caches data from api.weather.gov
+
+TO DO: Figure out how to pull new data whenever building. Currently this can be achieved by renaming the forecast.json.js file and changing to the new .json file path in [weather/index.md](https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md).
+
+---
+
+## Python for Google Data Commons API
 
 [Our CoLab for emission timelines](https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo#scrollTo=2gMBtmu1MGfq&line=19&uniqifier=1) - Loads from GDC API with Python - Paul
 
-TO DO: Invoke our CoLab with REST JSON for Web interactivity.
+Learn about [Datacommons.org API used in Python](https://docs.datacommons.org/api/python/)
+
+TO DO: Document how we invoke our CoLab with REST JSON for Web interactivity.
 
 ---
 

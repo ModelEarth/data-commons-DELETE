@@ -1,6 +1,6 @@
-[Data Commons](../)
+[Air and Climate](../)
 
-# Air and Climate
+# Weather
 
 ## Prerender api.weather.gov with .js
 
@@ -8,15 +8,25 @@ Saves a file when Observable builds using data/forecast.json.js.
 Added "async function fetchData()" since "display (forecast)"" returned "Promise{}"
 
 ```js
-// Important: Remove ".js" from forecast.json.js
+
+const url = "https://model.earth/localsite/js/localsite.js?showheader=true&showsearch=true";
+console.log("loadScript seeking: " + url);
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = url;
+var head = document.getElementsByTagName('head')[0];
+head.appendChild(script);
+
+// Important: Remove ".js" from forecast.json.js below:
 // Pre-render json from the .js file into dist _file/air/data
-const forecast = FileAttachment("../data/forecast.json").json();
+//const apiWeatherForecast = "data/forecast.json"
+//const forecast = FileAttachment(apiWeatherForecast).json();
 
 //display (forecast); // BUG: Displays: Promise {}
 //display (temperaturePlot(forecast));
 
 async function fetchData() {
-    const forecast = await FileAttachment("../data/forecast.json").json()
+    const forecast = await FileAttachment("data/forecast.json").json()
     .then(response => {
       console.log("got it")
       display(temperaturePlot(response));
