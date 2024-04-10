@@ -25,6 +25,6 @@ df = pd.DataFrame(forest_cover_data)
 outputFolder = ""
 output_name = "LandCoverFraction_Forest.csv"
 df.to_csv(os.path.join(outputFolder, output_name),index=False)
-            
+print("Saved: " + output_name)
 # pulls all available years but its out of order and will need to sort it with a JSON parser in descending/ascending order:
 # 'LandCoverFraction_Forest': {'sourceSeries': [{'val': {'2015': 57.712213157748906, '2019': 56.10225251926496, '2017': 57.329201724571796, '2016': 57.08418588188137, '2018': 58.540199494228055}
