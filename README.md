@@ -3,7 +3,7 @@
 [Data Commons Goals Built (dist)](dist/) and [Raw Files showing Javascript (docs)](docs/)
 
 **Root of UN Goals nav from Google API:** - [Start here as we automate SDG Goal visualization](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase)
-TO DO: Simplify and save the UN Goal navigation as a json file for our filters.
+TO DO: Load the above with Python via the GDC API, parse into a simple json file and load into HTML for navigating timelines.
 
 [Data Loader](https://observablehq.com/framework/loaders) - Save frequent requests as static files. (Good for simplified UN Goals navigation.)
 
