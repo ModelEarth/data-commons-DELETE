@@ -1,6 +1,6 @@
 # Data Commons
 
-[We're automating multi-country timelines for the UN Goals Section](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) within the [Statistical Variable Explorer](https://datacommons.org/tools/statvar) for our [Earthscape Chatbot UI fork](/earthscape/app/) - Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with [fewer hierarchy levels](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&sv=sdg%2FSI_POV_EMP1.AGE--Y15T24).
+[We're automating multi-country timelines for the UN Goals Section](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) within the [Statistical Variable Explorer](https://datacommons.org/tools/statvar) for our [Earthscape Chatbot UI fork](/earthscape/app/) and [Open WebUI Projects](/projects/src/).  Filter by date and location on more than 10,000 statistical variables. Let's create a wrapper of Statistical Variable Explorer with [fewer hierarchy levels](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase&sv=sdg%2FSI_POV_EMP1.AGE--Y15T24).
 
 Here are our two active CoLabs for the Google Data Commons API:
 1. [GDC-API-Caller CoLab](https://colab.research.google.com/drive/1phXc8z9IwmG9w83JTU4pXRv6XAV9a8BB?usp=sharing) - Directly calls the Google Data Commons API - Anna
@@ -15,21 +15,21 @@ Call the CoLabs from Javascript using REST.
 
 The [UN's seventeen 30-year goals](/data-pipeline/international/), plus four subsets of goal 9: Innovation.
 
-1. [Good Paying Jobs](jobs)
+1. [Great Jobs](jobs)
 2. [Healthy Food](food)
-3. [Good Health](health)
+3. [Excellent Health](health)
 4. [Quality Education](education)
 5. [Gender Equality](women)
 6. [Clean Water](water)
 7. [Energy](energy)
-8. [Healthy Economies](economy)
-9. [Innovation](innovation)
+8. [Vibrant Economies](economy)
+9. [Local Innovation](innovation)
 10. [Inclusion](inclusion)
 11. [Biodiversity](biodiversity)
 12. [Conservation](conservation)
 13. [Air and Climate](air)
-14. [Aquatic](aquatic)
-15. [Wildlife](wildlife)
+14. [Aquatic Life](aquatic)
+15. [Abundant Wildlife](wildlife)
 16. [Peace and Justice](peace)
 17. [Partnerships](partners)
 18. [Balanced Budgets](balanced)
