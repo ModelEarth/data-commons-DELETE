@@ -6,7 +6,7 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 ## International Emissions Time
 
-[View Timeline](../../dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/)
+[View Timeline](../../dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/) on [GitHub](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md)
 
 
 ## Weather Data Loader
