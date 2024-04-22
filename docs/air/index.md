@@ -8,6 +8,20 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 [View Timeline](../../dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/) on [GitHub](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md)
 
+## Embedded Stacked Plot for Multiple Country Codes:
+
+```html
+<div id="observablehq-13ca3fe9"></div>
+<p>Credit: <a href="https://observablehq.com/@me-test/plot-stacked-plots">Plot: Stacked Plots by ME_Test</a></p>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+  import define from "https://api.observablehq.com/@me-test/plot-stacked-plots.js?v=4";
+  new Runtime().module(define, Inspector.into("#observablehq-13ca3fe9"));
+</script>
+```
+
 
 ## Weather Data Loader
 
