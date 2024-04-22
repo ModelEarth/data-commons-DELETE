@@ -49,11 +49,7 @@ Placed in a span or div tag for [built version](../../dist/air/).
 
 <span>
 <script src="https://datacommons.org/datacommons.js"></script>
-<datacommons-line
-  header="Population for USA, India, and China"
-  places="country/USA country/IND country/CHN"
-  variables="Count_Person"
-></datacommons-line>
+<datacommons-line  header="Population for USA, India, and China" places="country/USA country/IND country/CHN" variables="Count_Person">Chart not visible until built.</datacommons-line>
 </span>
 <span style="font-size: 11px;">
 <a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 

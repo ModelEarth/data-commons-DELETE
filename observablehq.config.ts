@@ -3,7 +3,7 @@ export default {
   // The project’s title; used in the sidebar and webpage titles.
   title: "Data Commons",
   head: '<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"><script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>',
-  footer: 'Built with <a href="https://observablehq.com/" target="_blank">Observable</a> by our <a href="/io/">Model.earth Project Team</a>.',
+  footer: '<style>#observablehq-footer{margin-top:40px;border-top:1px solid #ccc;padding-top:10px;}</style>Built with <a href="https://observablehq.com" target="_blank">Observable</a> and <a href="https://DataCommons.org" target="_blank">Google Data Commons</a> by our <a href="/projects/">Model.earth Project Team</a>.',
 
   // The pages and sections in the sidebar. If you don’t specify this option,
   // all pages will be listed in alphabetical order. Listing pages explicitly
