@@ -12,7 +12,7 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 ```html
 <div id="observablehq-13ca3fe9"></div>
-<p>Credit: <a href="https://observablehq.com/@me-test/plot-stacked-plots">Plot: Stacked Plots by ME_Test</a></p>
+<p>Credit: <a href="https://observablehq.com/@me-test/plot-stacked-plots">Plot: Stacked Plots based on the country codes found in the DCID</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
