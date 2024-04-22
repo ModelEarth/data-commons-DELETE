@@ -12,8 +12,7 @@
 ```html
 
 <iframe width="100%" height="500" frameborder="0"
-  src="https://observablehq.com/embed/827e39d71329d05b@2468?cell=*&api_key=07f34a63e016cd8075dea482356a1bcc3ab5d385"></iframe>
-}
+  src="https://observablehq.com/embed/@me-test/dcid-air-drafts@2474?cell=*"></iframe>
 ```
 ```js
 export default DcidAirDrafts;
