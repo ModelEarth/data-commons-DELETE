@@ -12,7 +12,7 @@
 ```html
 
 <iframe width="100%" height="500" frameborder="0"
-  src="https://observablehq.com/embed/@me-test/dcid-air-drafts@2474?cell=*"></iframe>
+  src="https://observablehq.com/embed/@me-test/dcid-air-drafts@2477?cell=*"></iframe>
 ```
 ```js
 export default DcidAirDrafts;
