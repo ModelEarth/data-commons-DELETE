@@ -4,15 +4,17 @@
 
 Goal 13. Greenhouse Gas Reduction Climate Action
 
----
+## International Emissions Time
+
+[View Timeline](../../dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/)
+
 
 ## Weather Data Loader
 
-[View Weather Forecast](weather) - Caches data from api.weather.gov
+[View Weather Forecast](../../dist/air/weather) - Caches data from api.weather.gov.&nbsp; [View our Javacript](https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md)
 
-TO DO: Figure out how to pull new data whenever building. Currently this can be achieved by renaming the forecast.json.js file and changing to the new .json file path in [weather/index.md](https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md).
+To refresh the weather forecast, delete the file at: dist/\_file/air/weather/data/forecast.867a89c9.json, then `yarn build`
 
----
 
 ## Python for Google Data Commons API
 
@@ -22,7 +24,6 @@ Learn about [Datacommons.org API used in Python](https://docs.datacommons.org/ap
 
 TO DO: Document how we invoke our CoLab with REST JSON for Web interactivity.
 
----
 
 ## Building json and Fetching with Data Loader
 
@@ -40,7 +41,6 @@ The python requires running "python" external to Observable build.
 
 Python cannot be built from the `yarn build` &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or through a Google CoLab API.
 
----
 <br>
 
 ## Embed of GDC Component

@@ -20,6 +20,7 @@ import "../_observablehq/client.js";
 <nav>
 <div>Contents</div>
 <ol>
+<li class="observablehq-secondary-link"><a href="#international-emissions-time">International Emissions Time</a></li>
 <li class="observablehq-secondary-link"><a href="#weather-data-loader">Weather Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
 <li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
@@ -32,16 +33,15 @@ import "../_observablehq/client.js";
 <p><a href="../">Data Commons</a></p>
 <h1 id="air-and-climate" tabindex="-1"><a class="observablehq-header-anchor" href="#air-and-climate">Air and Climate</a></h1>
 <p>Goal 13. Greenhouse Gas Reduction Climate Action</p>
-<hr>
+<h2 id="international-emissions-time" tabindex="-1"><a class="observablehq-header-anchor" href="#international-emissions-time">International Emissions Time</a></h2>
+<p><a href="../../dist/air/emissions/emission">View Timeline</a> - <a href="../../docs/air/emissions/">View Code</a></p>
 <h2 id="weather-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#weather-data-loader">Weather Data Loader</a></h2>
-<p><a href="weather">View Weather Forecast</a> - Caches data from api.weather.gov</p>
-<p>TO DO: Figure out how to pull new data whenever building. Currently this can be achieved by renaming the forecast.json.js file and changing to the new .json file path in <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md">weather/index.md</a>.</p>
-<hr>
+<p><a href="../../dist/air/weather">View Weather Forecast</a> - Caches data from api.weather.gov.&nbsp; <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md">View our Javacript</a></p>
+<p>To refresh the weather forecast, delete the file at: dist/_file/air/weather/data/forecast.867a89c9.json, then <code>yarn build</code></p>
 <h2 id="python-for-google-data-commons-api" tabindex="-1"><a class="observablehq-header-anchor" href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></h2>
 <p><a href="https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo#scrollTo=2gMBtmu1MGfq&amp;line=19&amp;uniqifier=1">Our CoLab for emission timelines</a> - Loads from GDC API with Python - Paul</p>
 <p>Learn about <a href="https://docs.datacommons.org/api/python/">Datacommons.org API used in Python</a></p>
 <p>TO DO: Document how we invoke our CoLab with REST JSON for Web interactivity.</p>
-<hr>
 <h2 id="building-json-and-fetching-with-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></h2>
 <p><a href="https://observablehq.com/framework/loaders">Observable data loaders</a></p>
 <p>Javascript and python <a href="https://observablehq.com/framework/getting-started#next-steps">Data Loader samples from Observable</a>.</p>
@@ -50,7 +50,6 @@ import "../_observablehq/client.js";
 <p>The python requires running "python" external to Observable build.</p>
 <p>python docs/air/data/forecast.json.py</p>
 <p>Python cannot be built from the <code>yarn build</code> &nbsp;node.js cmd, but it can be run directly using the command above, or within GitHub Pages or through a Google CoLab API.</p>
-<hr>
 <br>
 <h2 id="embed-of-gdc-component" tabindex="-1"><a class="observablehq-header-anchor" href="#embed-of-gdc-component">Embed of GDC Component</a></h2>
 <p>Placed in a span or div tag for <a href="../../dist/air/">built version</a>.</p>
