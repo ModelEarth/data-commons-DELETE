@@ -15,10 +15,12 @@ Here are our two active CoLabs for the Google Data Commons API:
 1. [GDC-API-Caller CoLab](https://colab.research.google.com/drive/1phXc8z9IwmG9w83JTU4pXRv6XAV9a8BB?usp=sharing) - Directly calls the Google Data Commons API - Anna
 2. [GDC-Parameters CoLab](https://colab.research.google.com/drive/1mZC2Pn4oKau9Sz1Q16_qnOK7Tai09uEo?usp=sharing) - Sends parameters to our caller, then works with fetched json data - Paul  
 
+<!--
 Copy the GDC-Parameters CoLab and rename it in your goal folder: GDC-Parameters-Air, etc.
-Store the output in your goal's data subfolder. 
+-->
+
 [GDC Python API samples](https://docs.datacommons.org/tutorials/)
-Call the CoLabs from Javascript using REST.
+TO DO: Call the python CoLabs from Javascript in a webpage using REST.
 
 ## Goal Visualization
 
