@@ -5,7 +5,7 @@ We're automating multi-country timelines for [the UN Goals Section](https://data
 
 Identify titles for data with country timelines in the [UN Data Commons (unstats.un.org)](https://unstats.un.org/UNSDWebsite/undatacommons/sdgs) created by Google.
 
-Check out how we use titles with the API in the Forest Coverage timeline (coming soon).
+Check out how we use titles with the API call for our upcoming [Forest Coverage timeline](conservation).
 
 In the [Statistical Variable Explorer](https://datacommons.org/tools/statvar) you can filter by date and location on more than 10,000 statistical variables.
 
