@@ -10,10 +10,25 @@
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/+esm.js">
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"><script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
 <script type="module">
 
-import "../_observablehq/client.js";
+import {define} from "../_observablehq/client.js";
+
+define({id: "713e07fd", inputs: ["html","display"], body: async (html,display) => {
+display(await(
+html.fragment`<div id="observablehq-13ca3fe9"></div>
+<p>Credit: <a href="https://observablehq.com/@me-test/plot-stacked-plots">Plot: Stacked Plots based on the country codes found in the DCID</a></p>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+  import define from "https://api.observablehq.com/@me-test/plot-stacked-plots.js?v=4";
+  new Runtime().module(define, Inspector.into("#observablehq-13ca3fe9"));
+</script>`
+))
+}});
 
 </script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type), h2:first-child, :not(h1) + h2">
@@ -21,10 +36,12 @@ import "../_observablehq/client.js";
 <div>Contents</div>
 <ol>
 <li class="observablehq-secondary-link"><a href="#international-emissions-time">International Emissions Time</a></li>
+<li class="observablehq-secondary-link"><a href="#embedded-stacked-plot-for-multiple-country-codes%3A">Embedded Stacked Plot for Multiple Country Codes:</a></li>
 <li class="observablehq-secondary-link"><a href="#weather-data-loader">Weather Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#python-for-google-data-commons-api">Python for Google Data Commons API</a></li>
 <li class="observablehq-secondary-link"><a href="#building-json-and-fetching-with-data-loader">Building json and Fetching with Data Loader</a></li>
 <li class="observablehq-secondary-link"><a href="#embed-of-gdc-component">Embed of GDC Component</a></li>
+<li class="observablehq-secondary-link"><a href="#more">More</a></li>
 </ol>
 </nav>
 </aside>
@@ -34,7 +51,16 @@ import "../_observablehq/client.js";
 <h1 id="air-and-climate" tabindex="-1"><a class="observablehq-header-anchor" href="#air-and-climate">Air and Climate</a></h1>
 <p>Goal 13. Greenhouse Gas Reduction Climate Action</p>
 <h2 id="international-emissions-time" tabindex="-1"><a class="observablehq-header-anchor" href="#international-emissions-time">International Emissions Time</a></h2>
-<p><a href="../../dist/air/emissions/emission">View Timeline</a> - <a href="../../docs/air/emissions/">View Code</a> on <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md">GitHub</a></p>
+<!--
+Pointing timeline link at https://model.earth because 
+/emission.html gets shortened to /emission in dist folder, 
+which does not work with python localhost. 
+TO DO: Add steps for installing https cert to run: npx http-server
+https://model.earth/localsite/start/steps/
+-->
+<p><a href="https://model.earth/dist/air/emissions/emission.html">View Timeline</a> - <a href="../../docs/air/emissions/">View Code</a> on <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md">GitHub</a></p>
+<h2 id="embedded-stacked-plot-for-multiple-country-codes%3A" tabindex="-1"><a class="observablehq-header-anchor" href="#embedded-stacked-plot-for-multiple-country-codes%3A">Embedded Stacked Plot for Multiple Country Codes:</a></h2>
+<div id="cell-713e07fd" class="observablehq observablehq--block observablehq--loading"></div>
 <h2 id="weather-data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#weather-data-loader">Weather Data Loader</a></h2>
 <p><a href="../../dist/air/weather">View Weather Forecast</a> - Caches data from api.weather.gov.&nbsp; <a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/weather/index.md">View our Javacript</a></p>
 <p>To refresh the weather forecast, delete the file at: dist/_file/air/weather/data/forecast.867a89c9.json, then <code>yarn build</code></p>
@@ -61,6 +87,8 @@ import "../_observablehq/client.js";
 <a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
 <a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
 </span>
+<h2 id="more" tabindex="-1"><a class="observablehq-header-anchor" href="#more">More</a></h2>
+<p><a href="https://docs.google.com/document/d/1Xn5LCwlf8hEGsfJ_mAZEfLtNLopSGIeTJkMn90_RzQ8/edit?usp=sharing">Paul's How To</a> - under development. We also need a javascript version.</p>
 </main>
 <footer id="observablehq-footer">
 <div><style>#observablehq-footer{margin-top:40px;border-top:1px solid #ccc;padding-top:10px;}</style>Built with <a href="https://observablehq.com" target="_blank">Observable</a> and <a href="https://DataCommons.org" target="_blank">Google Data Commons</a> by our <a href="/projects/">Model.earth Project Team</a>.</div>

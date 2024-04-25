@@ -6,7 +6,15 @@ Goal 13. Greenhouse Gas Reduction Climate Action
 
 ## International Emissions Time
 
-[View Timeline](../../dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/) on [GitHub](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md)
+<!--
+Pointing timeline link at https://model.earth because 
+/emission.html gets shortened to /emission in dist folder, 
+which does not work with python localhost. 
+TO DO: Add steps for installing https cert to run: npx http-server
+https://model.earth/localsite/start/steps/
+-->
+
+[View Timeline](https://model.earth/dist/air/emissions/emission.html) - [View Code](../../docs/air/emissions/) on [GitHub](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/emission.md)
 
 ## Embedded Stacked Plot for Multiple Country Codes:
 
