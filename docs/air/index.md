@@ -72,5 +72,5 @@ Placed in a span or div tag for [built version](../../dist/air/).
 
 ## More
 
-[Paul's How To](https://docs.google.com/document/d/1Xn5LCwlf8hEGsfJ_mAZEfLtNLopSGIeTJkMn90_RzQ8/edit?usp=sharing) - under development, needs javascript version
+[Paul's How To](https://docs.google.com/document/d/1Xn5LCwlf8hEGsfJ_mAZEfLtNLopSGIeTJkMn90_RzQ8/edit?usp=sharing) - under development. We also need a javascript version.
 

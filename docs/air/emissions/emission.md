@@ -1,7 +1,12 @@
 # Emission Reports
 
+**View data formats**  
+[API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv) - below  
+[emission.csv](https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/data/emission.csv) - has gap, more decline  
+
 ```js
-const emissionData = FileAttachment("data/emission.csv").csv({typed: true});
+//const emissionData = FileAttachment("data/emission.csv").csv({typed: true});
+const emissionData = FileAttachment("data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv").csv({typed: true});
 ```
 ```js
 display(emissionData)

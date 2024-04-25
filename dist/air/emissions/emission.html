@@ -54,10 +54,11 @@
 import {define} from "../../_observablehq/client.js";
 import {registerFile} from "../../_observablehq/stdlib.js";
 
-registerFile("./data/emission.csv", {"name":"./data/emission.csv","mimeType":"text/csv","path":"../../_file/air/emissions/data/emission.3d46a792.csv"});
+registerFile("./data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv", {"name":"./data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv","mimeType":"text/csv","path":"../../_file/air/emissions/data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.14a1f42a.csv"});
 
-define({id: "16e9c4fd", inputs: ["FileAttachment"], outputs: ["emissionData"], body: (FileAttachment) => {
-const emissionData = FileAttachment("data/emission.csv").csv({typed: true});
+define({id: "bf1ff6d1", inputs: ["FileAttachment"], outputs: ["emissionData"], body: (FileAttachment) => {
+//const emissionData = FileAttachment("data/emission.csv").csv({typed: true});
+const emissionData = FileAttachment("data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv").csv({typed: true});
 return {emissionData};
 }});
 
@@ -240,7 +241,10 @@ display("This is Co2 Emission data")
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
 <h1 id="emission-reports" tabindex="-1"><a class="observablehq-header-anchor" href="#emission-reports">Emission Reports</a></h1>
-<div id="cell-16e9c4fd" class="observablehq observablehq--block"></div>
+<p><strong>View data formats</strong><br>
+<a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/data/API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv">API_EN.ATM.CO2E.PC_DS2_zh_csv_v2_45186.csv</a> - below<br>
+<a href="https://github.com/ModelEarth/data-commons/blob/main/docs/air/emissions/data/emission.csv">emission.csv</a> - has gap, more decline</p>
+<div id="cell-bf1ff6d1" class="observablehq observablehq--block"></div>
 <div id="cell-42786ffb" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-da263bad" class="observablehq observablehq--block"></div>
 <div id="cell-e4ada0cf" class="observablehq observablehq--block"></div>
