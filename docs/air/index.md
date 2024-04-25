@@ -69,3 +69,8 @@ Placed in a span or div tag for [built version](../../dist/air/).
 <a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
 <a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
 </span>
+
+## More
+
+[Paul's How To](https://docs.google.com/document/d/1Xn5LCwlf8hEGsfJ_mAZEfLtNLopSGIeTJkMn90_RzQ8/edit?usp=sharing) - under development, needs javascript version
+

@@ -18,8 +18,8 @@ Here are our two active CoLabs for the Google Data Commons API:
 <!--
 Copy the GDC-Parameters CoLab and rename it in your goal folder: GDC-Parameters-Air, etc.
 -->
-
 [GDC Python API samples](https://docs.datacommons.org/tutorials/)
+
 TO DO: Call the python CoLabs from Javascript in a webpage using REST.
 
 ## Goal Visualization
@@ -98,8 +98,8 @@ Instead, after you've run `python -m http.server 8887` in your webroot, view at:
 
 | Command           | Description                                              |
 | ----------------- | -------------------------------------------------------- |
-| `yarn install`    | Install or reinstall dependencies                        |
-| `yarn dev`        | Start local preview server                             |
+| `yarn install`    | Install or reinstall dependencies. Same as `yarn`        |
+| `yarn dev`        | Start local preview server                               |
 | `yarn build`      | Build your static site, generating `./dist`              |
 | `yarn deploy`     | Deploy your project to Observable                        |
 | `yarn clean`      | Clear the local data loader cache                        |
