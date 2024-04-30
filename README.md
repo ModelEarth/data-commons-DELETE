@@ -1,4 +1,33 @@
-# Data Commons
+[Data Pipeline](../data-pipeline/)
+# Data Commons - Timelines
+
+[Google Data Commons API for UN Global Goals](https://blog.google/technology/ai/google-ai-data-un-global-goals/) - [UN Data Commons: SDG Data by Goal](https://unstats.un.org/UNSDWebsite/undatacommons/sdgs)
+The UN Sustainable Development Goals (SDG) data resides in the [Google Data Commons API](https://docs.datacommons.org/api/).
+
+[Update our Google Data Commons notes page](../../localsite/info/data/datacommons/) - Add steps for using the API and generate visualizations
+
+[Prep Timeline Data](../timelines/) using [worldbank.org indicators](https://github.com/phiresky/world-development-indicators-sqlite/)
+
+<!--
+[Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch) - The UN body for climate change data assessments.
+-->
+
+
+<h2>UN Sustainable Development Goals</h2>
+To Consider: Display all 17 Global Goal indicator lines on one large 30-year timeline chart with projections.<br><br>
+
+<img src="docs/components/img/goals.webp" style="width:100%; max-width:1200px;"><br>
+TO DO: Replace the above with individual images and interactivity by find a GitHub repo containing UN Goal marketing material, including icons and related images.<br><br>
+
+<!-- https://globalgoalsmarks.org/app/ -->
+<a href="https://www.globalgoals.org/goals/">About the 17 Global Goals</a> - 
+<a href="https://www.globalgoals.org/news/">Latest News</a> - <a href="https://worldslargestlesson.globalgoals.org/">World's Largest Lesson</a>
+<br><br>
+
+<a href="comtrade">Comtrade Data Prep</a><br><br>
+
+
+
 
 [Data Commons Goals Built (dist)](dist/) and [Raw Files showing Javascript (docs)](docs/)
 
