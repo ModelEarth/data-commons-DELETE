@@ -19,7 +19,7 @@ TO DO: Display our [US Industry Timelines](../data-pipeline/timelines/) within t
 <!--
 	TO DO: Display all 17 Global Goal indicator lines on one large 30-year timeline chart with projections.<br><br>
 -->
-Moonshots: [Push EPA data to GDC and Reuse GDC LLM for Visual Searches](../../localsite/info/data/datacommons/) - Add steps for using the API and generate visualizations
+Moonshots: [Push EPA data to GDC and Reuse GDC LLM for Visual Searches](../../localsite/info/data/datacommons/)
 
 
 ## UN Sustainable Development Goals</h2>
@@ -29,19 +29,14 @@ The UN Sustainable Development Goals (SDG) data resides in the [Google Data Comm
 
 [Blog: Google Data Commons API for UN Global Goals](https://blog.google/technology/ai/google-ai-data-un-global-goals/)
 
-<!--
-[Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch) - The UN body for climate change data assessments.
--->
-
-
-
-<img src="docs/components/img/goals.webp" style="width:100%; max-width:1200px;"><br>
-TO DO: Replace the above with individual images and interactivity by find a GitHub repo containing UN Goal marketing material, including icons and related images.<br><br>
-
 <!-- https://globalgoalsmarks.org/app/ -->
 <a href="https://www.globalgoals.org/goals/">About the 17 Global Goals</a> - <a href="https://www.globalgoals.org/news/">Latest Goal News</a> - <a href="https://worldslargestlesson.globalgoals.org/">World's Largest Lesson</a>
 
-<a href="/data-pipeline/international/comtrade">UN Comtrade Data Prep</a><br><br>
+[UN Comtrade Data Pull](/data-pipeline/international/comtrade) and [Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch) - The UN body for climate change data assessments.
+
+<img src="docs/components/img/goals.png" style="width:100%; max-width:1200px;"><br>
+TO DO: Replace the above image with linked images and interactivity by finding a GitHub repo containing UN Goal marketing material, including icons and related images.<br><br>
+
 
 
 ## Install and Build Locally
