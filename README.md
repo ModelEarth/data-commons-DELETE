@@ -1,42 +1,50 @@
 [Data Pipeline](../data-pipeline/)
 # Data Commons - Timelines
 
-[Google Data Commons API for UN Global Goals](https://blog.google/technology/ai/google-ai-data-un-global-goals/) - [UN Data Commons: SDG Data by Goal](https://unstats.un.org/UNSDWebsite/undatacommons/sdgs)
+[Data Commons Goals Built (dist)](dist/) and [Src files showing Javascript (docs)](docs/)
+
+[Google UN Data Commons Nav for API](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) - Widen screen to explore root of 17 UN Goals
+
+
+TO DO: Load the nav tree with Python via the GDC API, parse into a simple json file and load into HTML for navigating timelines.
+
+TO DO: Save timeline titles from GDC API cascading navigation from a static json file using [Observable Data Loader](https://observablehq.com/framework/loaders) ([See our Weather Data Loader notes](docs/air/)). Store in a new folder at data-commons/docs/google
+
+TO DO: Create a simplified UN Goals navigation using the cached titles json file. The Data Loader will send it to docs/.observablehq/cache/google/data
+
+TO DO: Display our [US Industry Timelines](../data-pipeline/timelines/) within the same timeline process
+
+<!--[worldbank.org indicators](https://github.com/phiresky/world-development-indicators-sqlite/)-->
+
+<!--
+	TO DO: Display all 17 Global Goal indicator lines on one large 30-year timeline chart with projections.<br><br>
+-->
+Moonshots: [Push EPA data to GDC and Reuse GDC LLM for Visual Searches](../../localsite/info/data/datacommons/) - Add steps for using the API and generate visualizations
+
+
+## UN Sustainable Development Goals</h2>
+
+[UN Data Commons: SDG Data by Goal](https://unstats.un.org/UNSDWebsite/undatacommons/sdgs)
 The UN Sustainable Development Goals (SDG) data resides in the [Google Data Commons API](https://docs.datacommons.org/api/).
 
-[Update our Google Data Commons notes page](../../localsite/info/data/datacommons/) - Add steps for using the API and generate visualizations
-
-[Prep Timeline Data](../timelines/) using [worldbank.org indicators](https://github.com/phiresky/world-development-indicators-sqlite/)
+[Blog: Google Data Commons API for UN Global Goals](https://blog.google/technology/ai/google-ai-data-un-global-goals/)
 
 <!--
 [Intergovernmental Panel on Climate Change (IPCC)](https://www.ipcc.ch) - The UN body for climate change data assessments.
 -->
 
 
-<h2>UN Sustainable Development Goals</h2>
-To Consider: Display all 17 Global Goal indicator lines on one large 30-year timeline chart with projections.<br><br>
 
 <img src="docs/components/img/goals.webp" style="width:100%; max-width:1200px;"><br>
 TO DO: Replace the above with individual images and interactivity by find a GitHub repo containing UN Goal marketing material, including icons and related images.<br><br>
 
 <!-- https://globalgoalsmarks.org/app/ -->
-<a href="https://www.globalgoals.org/goals/">About the 17 Global Goals</a> - 
-<a href="https://www.globalgoals.org/news/">Latest News</a> - <a href="https://worldslargestlesson.globalgoals.org/">World's Largest Lesson</a>
-<br><br>
+<a href="https://www.globalgoals.org/goals/">About the 17 Global Goals</a> - <a href="https://www.globalgoals.org/news/">Latest Goal News</a> - <a href="https://worldslargestlesson.globalgoals.org/">World's Largest Lesson</a>
 
-<a href="comtrade">Comtrade Data Prep</a><br><br>
+<a href="/data-pipeline/international/comtrade">UN Comtrade Data Prep</a><br><br>
 
 
-
-
-[Data Commons Goals Built (dist)](dist/) and [Raw Files showing Javascript (docs)](docs/)
-
-**Root of UN Goals nav from Google API:** - [Start here as we automate SDG Goal visualization](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase)
-TO DO: Load the above with Python via the GDC API, parse into a simple json file and load into HTML for navigating timelines.
-
-[Data Loader](https://observablehq.com/framework/loaders) - Save frequent requests as static files. (Good for simplified UN Goals navigation.)
-
----
+## Install and Build Locally
 
 This is an [Observable Framework](https://observablehq.com/framework) project. 
 Run once daily when you start - updates dependencies defined in [package.json](package.json):
