@@ -4,6 +4,17 @@
 
 Goal 2. Healthy Food, No Hunger - [balance repo](/balance/)
 
+[Data.world nutrition data for raw fruits, vegetables](https://data.world/adamhelsinger/food-nutrition-information) - from Rakesh
+
+TO DO: Create 3D Force-Directed Graph mockup for the [Uncovering the Nutritional Landscape of Food](https://www.researchgate.net/figure/The-nutrient-nutrient-network-Each-node-represents-a-nutrient-and-nodes-are-connected_fig4_264826549) visualizations below (we will then contact researches to get data) - In the nutrient-nutrient network. Each node represents a nutrient, and nodes are connected through correlations between abundances of nutrients across all foods. The network is composed of three major groups of nutrients densely connected to one another through positive correlations. 
+
+The shape of each node indicates a hierarchical or ‘taxonomic’ level of a nutrient, from ‘ Highest ’ (a general class of nutrients) to ‘Lowest’ (a specific nutrient). Color and thickness of each link correspond to the sign and magnitude of the correlation, respectively. Seven nutrients are omitted which don’t have significant correlations with any others. We also omit amino acids, because their correlations with other nutrients are very similar to correlations of total protein with others, and thus redundant for visualization.
+
+<a href="../../docs/food/network/img/The-nutrient-nutrient-network-Each-node-represents-a-nutrient-and-nodes-are-connected.png"><img src="../../docs/food/network/img/The-nutrient-nutrient-network-Each-node-represents-a-nutrient-and-nodes-are-connected.png" style="width:100%;max-width:800px;"></a>
+
+<a href="../../docs/food/network/img/The-food-food-network-A-C-Large-scale-to-small-scale-overviews-of-the-network-Each.png"><img src="../../docs/food/network/img/The-food-food-network-A-C-Large-scale-to-small-scale-overviews-of-the-network-Each.png" style="width:100%;max-width:800px;"></a>
+
+
 ## Food Nutrition Labels (YAML locally)
 
 TO DO: Integrate with [Nutritionix Label](https://dev2.nutritionix.com/html/label-jquery-plugin/demo/2018-version/demo.html)
