@@ -19,6 +19,8 @@ The shape of each node indicates a hierarchical or ‘taxonomic’ level of a nu
 
 TO DO: Integrate with [Nutritionix Label](https://dev2.nutritionix.com/html/label-jquery-plugin/demo/2018-version/demo.html)
 
+Source: [USDA API](https://fdc.nal.usda.gov/api-guide.html)
+
 In the "fdc" subfolder we have two yaml samples for each of the 5 food groups (protein, dairy, vegetable, fruit, grains)
 
 **Protein**  
