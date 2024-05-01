@@ -1,7 +1,7 @@
 [UN Goal Timelines](../../) - [Data Commons](../)
 
 # Good Paying Jobs
-Goal 1. No Poverty - Good Paying Jobs and Assistance
+Goal 1. Good Paying Jobs and Assistance - No Poverty
 
 ## Google API via Javascript
 
