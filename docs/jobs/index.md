@@ -1,88 +1,90 @@
-[Data Commons](../)
+[UN Goal Timelines](../../) - [Data Commons](../)
 
-# API Tests<hr>
-Experiments with using Javascript to call Google Data Commons API.
-<!--
 # Good Paying Jobs
 Goal 1. No Poverty - Good Paying Jobs and Assistance
--->
 
-<style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 20px;
-      padding: 20px;
-    }
+## Google API Via Javascript
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+Using [Javascript](../../docs/jobs/) and [NodeJS](../../dist/jobs/) to call Google Data Commons API.
 
-    label {
-      display: block;
-      margin: 10px 0;
-    }
-
-    input {
-      padding: 8px;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-
-    #resultContainer {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-
-    .suggestion-container {
-      margin-top: 5px;
-    }
-
-    .suggestion-bubble {
-      display: inline-block;
-      padding: 5px 10px;
-      margin-right: 5px;
-      cursor: pointer;
-      border-radius: 4px;
-      border: 1px solid white; /* Changed border color to white */
-    }
-
-    .suggestion-bubble:hover {
-      background-color: yellow;
-    }
-    .bottomInput {
-      background-color: #ccc;
-      padding: 18px;
-      /*
-      position: fixed;
-      right: 0;
-      top: 0;
-      */
-    }
-  </style>
-
-## API Demo
-
-You can find the desired DCID and property from these sources:
+You can find the DCID and property value using:
 
 - [Data Commons Place Browser](https://datacommons.org/place)
 - [Data Commons StatVar Browser](https://datacommons.org/tools/statvar)
 - [Data Commons Browser](https://datacommons.org/browser/)
 
-For API examples, you can check:
+[Based on REST API v2/observation example 3](https://docs.datacommons.org/api/rest/v2/observation)
 
-- [Data Commons REST API Documentation](https://docs.datacommons.org/api/rest/v2)
+Change the DCID <!---and Property -->below to view JSON output.
+<!--
+DCID Examples: geoId/13, PowerPlant, Count\_Jobs\_EconomicDevelopmentAdministration\_JobsCreated
+-->
+**variable.dcids:** Count\_Person, LandCoverFraction\_Forest
 
-Enter DCID and Property examples below to view JSON Output
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  padding: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+#resultContainer {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.suggestion-container {
+  margin-top: 5px;
+}
+
+.suggestion-bubble {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid white; /* Changed border color to white */
+}
+
+.suggestion-bubble:hover {
+  background-color: yellow;
+}
+.bottomInput {
+  background-color: #ccc;
+  padding: 18px;
+  /*
+  position: fixed;
+  right: 0;
+  top: 0;
+  */
+}
+</style>
+
+
 
 <div class="bottomInput">
 
@@ -112,17 +114,17 @@ Enter DCID and Property examples below to view JSON Output
 -->
 
 <div style="float:left">
-DCID:<br>
-<input type="text" id="dcidInput" placeholder="e.g., geoId/06" value="Count_Jobs_EconomicDevelopmentAdministration_JobsCreated">
+Variable DCIDs:<br>
+<!-- Didn't work Count_Jobs_EconomicDevelopmentAdministration_JobsCreated -->
+<input type="text" id="dcidInput" placeholder="e.g., geoId/13" value="LandCoverFraction_Forest">
 </div>
 
-<div style="float:left">
+<div style="float:left; display:none"><!-- show when not timeline which used v2/observation API -->
 Property<br>
 <input type="text" id="propertyInput" placeholder="e.g., <-" value="->*">
 </div>
 
-<div style="float:left">
-&nbsp;
+<div style="float:left; padding-left:10px; padding-top:13px">
 <button id="downloadButton" style="float:right;background-color:#999;">Download</button>
 <button id="loadDataButton" style="margin-right:10px">View JSON</button>
 </div>
@@ -132,9 +134,10 @@ Property<br>
 </div>
 
 
-<div id="resultContainer">JSON Output from Google Data Commons API</div>
+<div id="resultContainer" style="max-height:400px;overflow-y:scroll;">JSON Output from Google Data Commons API</div>
 <br>
 
+<!--
 ### API Examples
 
 **To find the properties related to `geoId/06`**  
@@ -156,6 +159,13 @@ Pass a list in the properties column.
 
     DCID: geoID/13
     Property: ->[nearbyPlaces, landArea]
+-->
+
+## NodeJS
+
+Yarn Build into [dist/jobs folder](../../dist/jobs/)
+
+The client-side version of the following resides within index.html and uses [components/data-loader-earth.js](../components/data-loader-earth.js).
 
 <!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
@@ -179,35 +189,30 @@ The following is only functional when built into the "dist" repo. [View built ve
       addSuggestionToInput(suggestion, inputId);
     });
   });
-```
 
-```js
+  // Sends file to dist/_import/components/data_loader.081307e4.js
   import {loadDataCommons,displayJsonData} from "../components/data_loader.js";
-```
 
-```js
-  document.getElementById('loadDataButton').addEventListener('click', () => 
-    {
-        const apiKey = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
-        const dcidInput = document.getElementById('dcidInput').value;
-        const propertyInput = document.getElementById('propertyInput').value;
+  document.getElementById('loadDataButton').addEventListener('click', () => {
+    loadData();
+  });
+  function loadData() {
+      const apiKey = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
+      const dcidInput = document.getElementById('dcidInput').value;
+      const propertyInput = document.getElementById('propertyInput').value;
 
-        console.log('DCID:', dcidInput);
-        console.log('Property:', propertyInput);
+      console.log('DCID:', dcidInput);
+      console.log('Property:', propertyInput);
 
-        loadDataCommons(apiKey, dcidInput, propertyInput).then(data => {
-            console.log(data);
-            displayJsonData(data);
-            })
-                .catch(error => {
-                    console.error('Error loading data:', error);
-            });
-        
-    }
-  );
-```
+      loadDataCommons(apiKey, dcidInput, propertyInput).then(data => {
+          console.log(data);
+          displayJsonData(data);
+      }).catch(error => {
+          console.error('Error loading data:', error);
+      });
+  }
+  loadData();
 
-```js
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;

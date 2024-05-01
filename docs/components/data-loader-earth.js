@@ -1,15 +1,12 @@
-export async function loadDataCommons(apiKey, dcid, property) 
-{ 
-      //const url = `https://api.datacommons.org/v2/node?key=${apiKey}&nodes=${dcid}&property=${property}`;
-      
-      // Example of pulling for all years
-      const url =`https://api.datacommons.org/v2/observation?key=${apiKey}&date=2015&date=LATEST&entity.expression=geoId%2F06%3C-containedInPlace%2B%7BtypeOf%3ACounty%7D&select=date&select=entity&select=value&select=variable&variable.dcids=${dcid}`; // variable.dcids=Count_Person
-      const response = await fetch(url);
-      return await response.json();
+async function loadDataCommons(apiKey, dcid, property) {
+  // Example of pulling for all years
+  const url = `https://api.datacommons.org/v2/observation?key=${apiKey}&date=2015&date=LATEST&entity.expression=geoId%2F06%3C-containedInPlace%2B%7BtypeOf%3ACounty%7D&select=date&select=entity&select=value&select=variable&variable.dcids=${dcid}`; // variable.dcids=Count_Person
+
+  const response = await fetch(url);
+  return await response.json();
 }
 
-// Function to display JSON data in tabular format
-export function displayJsonData(data) {
+function displayJsonData(data) {
   const resultContainer = document.getElementById('resultContainer');
 
   // Clear previous content

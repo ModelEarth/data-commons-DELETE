@@ -3,61 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Data Commons</title>
+<title>Data Commons - Jobs Timeline</title>
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="/data-commons/dist/_observablehq/theme-air,near-midnight.css" />
 <script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?showheader=true"></script>
+
+<!-- Same as NodeJS in index.md -->
+<script type="text/javascript" src="../components/data-loader-earth.js"></script>
+<script>
+  waitForElm('#loadDataButton').then((elm) => {
+    document.getElementById('loadDataButton').addEventListener('click', () => {
+        loadData();
+    });
+    loadData(); // Init
+  });
+  function loadData() {
+    const apiKey = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
+    const dcidInput = document.getElementById('dcidInput').value;
+    const propertyInput = document.getElementById('propertyInput').value;
+
+    console.log('DCID:', dcidInput);
+    console.log('Property:', propertyInput);
+
+    loadDataCommons(apiKey, dcidInput, propertyInput).then(data => {
+        console.log(data);
+        displayJsonData(data);
+    }).catch(error => {
+        console.error('Error loading data:', error);
+    });
+  }
+  waitForElm('#downloadButton').then((elm) => {
+    document.getElementById("downloadButton").addEventListener("click", function() {
+      alert("clicked")
+      const resultData = document.getElementById("resultContainer").textContent;
+      const data = "data:text/json;charset=utf-8," + encodeURIComponent(resultData);
+      const downloadButton = document.createElement("a");
+      downloadButton.setAttribute("href", data);
+      downloadButton.setAttribute("download", "data.json");
+      downloadButton.click();
+    });
+  });
+</script>
+
 
 <script>
 loadMarkdown("index.md", "readmeDiv", "_parent");
 </script>
-
-<script src="https://datacommons.org/datacommons.js"></script>
-
 <style>
 body {
-  /* find where these are beind set to 20px */
+  /* find where these are being set to 20px */
   margin: 0px !important;
   padding: 0px !important;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="content contentpadding">
-
-Embedded Google Data Commons Web Components
-<!-- Uses datacommons.js script above. datacommons.js moved into head tag because #readmeDiv was not consistently available to loadMarkdown() -->
-<datacommons-line
-  header="Population for Brazil, China, India, Russia and USA"
-  places="country/USA country/IND country/CHN country/BRA country/RUS"
-  variables="Count_Person"
-></datacommons-line>
-
-<a href="https://docs.datacommons.org/api/web_components/">Data Commons Web Components</a> - 
-<a href="https://docs.datacommons.org/api/web_components/line">Line Chart Web Component</a>
-<br><br>
-
-
-<h3>How do we display multiple lines in these GDC charts?</h3>
-<datacommons-line
-  header="Iceland Population Over Time"
-  group="country"
-  place="country/ISL"
-  variables="Count_Person"
-></datacommons-line>
-<datacommons-line
-  header="Ukraine Population Over Time"
-  place="country/UKR"
-  variables="Count_Person"
-></datacommons-line>
-<br><br>
-
-<div id="readmeDiv"></div>
-
+<div id="observablehq-center" class="content contentpadding">
+  <div id="readmeDiv"></div>
 </div>
+
 
 </body>
 </html>

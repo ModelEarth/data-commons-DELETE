@@ -1,5 +1,5 @@
 [Data Pipeline](../data-pipeline/)
-# Data Commons - Timelines
+# UN Goal Timelines
 
 [Data Commons Goals Built (dist)](dist/) and [Src files showing Javascript (docs)](docs/)
 
