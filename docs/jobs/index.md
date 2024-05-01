@@ -3,7 +3,7 @@
 # Good Paying Jobs
 Goal 1. No Poverty - Good Paying Jobs and Assistance
 
-## Google API Via Javascript
+## Google API via Javascript
 
 Using [Javascript](../../docs/jobs/) and [NodeJS](../../dist/jobs/) to call Google Data Commons API.
 
