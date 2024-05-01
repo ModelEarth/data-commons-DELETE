@@ -165,7 +165,8 @@ Pass a list in the properties column.
 
 Yarn Build into [dist/jobs folder](../../dist/jobs/)
 
-The client-side version of the following resides within index.html and uses [components/data-loader-earth.js](../components/data-loader-earth.js).
+The client-side version of the following resides within index.html and uses  
+[components/data-loader-earth.js](../../docs/components/data-loader-earth.js).
 
 <!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
