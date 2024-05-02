@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>API Tests | Data Commons</title>
+<title>Good Paying Jobs | Data Commons</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../_observablehq/theme-air,near-midnight.css">
@@ -10,13 +10,14 @@
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
-<link rel="modulepreload" href="../_import/components/data_loader.c6e8fc24.js">
+<link rel="modulepreload" href="../_import/components/data_loader.095f7011.js">
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"><script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
 <script type="module">
 
 import {define} from "../_observablehq/client.js";
 
-define({id: "4639bce9", outputs: ["addSuggestionToInput"], body: () => {
+define({id: "07fbe3a5", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
+const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.095f7011.js");
   function addSuggestionToInput(suggestion, inputId) {
     document.getElementById(inputId).value = suggestion;
   }
@@ -34,38 +35,29 @@ define({id: "4639bce9", outputs: ["addSuggestionToInput"], body: () => {
       addSuggestionToInput(suggestion, inputId);
     });
   });
-return {addSuggestionToInput};
-}});
 
-define({id: "b85bc961", outputs: ["loadDataCommons","displayJsonData"], body: async () => {
-const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.c6e8fc24.js");
+  // Sends file to dist/_import/components/data_loader.081307e4.js
   
-return {loadDataCommons,displayJsonData};
-}});
+  document.getElementById('loadDataButton').addEventListener('click', () => {
+    loadData();
+  });
+  function loadData() {
+      const apiKey = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
+      const dcidInput = document.getElementById('dcidInput').value;
+      const propertyInput = document.getElementById('propertyInput').value;
 
-define({id: "1a028a3e", inputs: ["loadDataCommons","displayJsonData"], body: (loadDataCommons,displayJsonData) => {
-  document.getElementById('loadDataButton').addEventListener('click', () => 
-    {
-        const apiKey = 'AIzaSyCTI4Xz-UW_G2Q2RfknhcfdAnTHq5X5XuI';
-        const dcidInput = document.getElementById('dcidInput').value;
-        const propertyInput = document.getElementById('propertyInput').value;
+      console.log('DCID:', dcidInput);
+      console.log('Property:', propertyInput);
 
-        console.log('DCID:', dcidInput);
-        console.log('Property:', propertyInput);
+      loadDataCommons(apiKey, dcidInput, propertyInput).then(data => {
+          console.log(data);
+          displayJsonData(data);
+      }).catch(error => {
+          console.error('Error loading data:', error);
+      });
+  }
+  loadData();
 
-        loadDataCommons(apiKey, dcidInput, propertyInput).then(data => {
-            console.log(data);
-            displayJsonData(data);
-            })
-                .catch(error => {
-                    console.error('Error loading data:', error);
-            });
-        
-    }
-  );
-}});
-
-define({id: "fddc5e6c", body: () => {
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;
@@ -75,6 +67,7 @@ define({id: "fddc5e6c", body: () => {
     downloadButton.setAttribute("download", "data.json");
     downloadButton.click();
   });
+return {addSuggestionToInput,loadDataCommons,displayJsonData,loadData};
 }});
 
 </script>
@@ -82,93 +75,92 @@ define({id: "fddc5e6c", body: () => {
 <nav>
 <div>Contents</div>
 <ol>
-<li class="observablehq-secondary-link"><a href="#api-demo">API Demo</a></li>
+<li class="observablehq-secondary-link"><a href="#google-api-via-javascript">Google API via Javascript</a></li>
+<li class="observablehq-secondary-link"><a href="#nodejs">NodeJS</a></li>
 </ol>
 </nav>
 </aside>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<p><a href="../">Data Commons</a></p>
-<h1 id="api-tests" tabindex="-1"><a class="observablehq-header-anchor" href="#api-tests">API Tests<hr></a></h1>
-<p>Experiments with using Javascript to call Google Data Commons API.</p>
-<!--
-# Good Paying Jobs
-Goal 1. No Poverty - Good Paying Jobs and Assistance
--->
-<style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 20px;
-      padding: 20px;
-    }
-
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    label {
-      display: block;
-      margin: 10px 0;
-    }
-
-    input {
-      padding: 8px;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-
-    #resultContainer {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-
-    .suggestion-container {
-      margin-top: 5px;
-    }
-
-    .suggestion-bubble {
-      display: inline-block;
-      padding: 5px 10px;
-      margin-right: 5px;
-      cursor: pointer;
-      border-radius: 4px;
-      border: 1px solid white; /* Changed border color to white */
-    }
-
-    .suggestion-bubble:hover {
-      background-color: yellow;
-    }
-    .bottomInput {
-      background-color: #ccc;
-      padding: 18px;
-      /*
-      position: fixed;
-      right: 0;
-      top: 0;
-      */
-    }
-  </style>
-<h2 id="api-demo" tabindex="-1"><a class="observablehq-header-anchor" href="#api-demo">API Demo</a></h2>
-<p>You can find the desired DCID and property from these sources:</p>
+<p><a href="../../">UN Goal Timelines</a> - <a href="../">Data Commons</a></p>
+<h1 id="good-paying-jobs" tabindex="-1"><a class="observablehq-header-anchor" href="#good-paying-jobs">Good Paying Jobs</a></h1>
+<p>Goal 1. No Poverty - Good Paying Jobs and Assistance</p>
+<h2 id="google-api-via-javascript" tabindex="-1"><a class="observablehq-header-anchor" href="#google-api-via-javascript">Google API via Javascript</a></h2>
+<p>Using <a href="../../docs/jobs/">Javascript</a> and <a href="../../dist/jobs/">NodeJS</a> to call Google Data Commons API.</p>
+<p>You can find the DCID and property value using:</p>
 <ul>
 <li><a href="https://datacommons.org/place">Data Commons Place Browser</a></li>
 <li><a href="https://datacommons.org/tools/statvar">Data Commons StatVar Browser</a></li>
 <li><a href="https://datacommons.org/browser/">Data Commons Browser</a></li>
 </ul>
-<p>For API examples, you can check:</p>
-<ul>
-<li><a href="https://docs.datacommons.org/api/rest/v2">Data Commons REST API Documentation</a></li>
-</ul>
-<p>Enter DCID and Property examples below to view JSON Output</p>
+<p><a href="https://docs.datacommons.org/api/rest/v2/observation">Based on REST API v2/observation example 3</a></p>
+<p>Change the DCID <!---and Property -->below to view JSON output.</p>
+<!--
+DCID Examples: geoId/13, PowerPlant, Count\_Jobs\_EconomicDevelopmentAdministration\_JobsCreated
+-->
+<p><strong>variable.dcids:</strong> Count_Person, LandCoverFraction_Forest</p>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  padding: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+#resultContainer {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.suggestion-container {
+  margin-top: 5px;
+}
+
+.suggestion-bubble {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid white; /* Changed border color to white */
+}
+
+.suggestion-bubble:hover {
+  background-color: yellow;
+}
+.bottomInput {
+  background-color: #ccc;
+  padding: 18px;
+  /*
+  position: fixed;
+  right: 0;
+  top: 0;
+  */
+}
+</style>
 <div class="bottomInput">
 <!-- Hid these until javascript modified -->
 <!--
@@ -195,45 +187,53 @@ Goal 1. No Poverty - Good Paying Jobs and Assistance
 </div>
 -->
 <div style="float:left">
-DCID:<br>
-<input type="text" id="dcidInput" placeholder="e.g., geoId/06" value="Count_Jobs_EconomicDevelopmentAdministration_JobsCreated">
+Variable DCIDs:<br>
+<!-- Didn't work Count_Jobs_EconomicDevelopmentAdministration_JobsCreated -->
+<input type="text" id="dcidInput" placeholder="e.g., geoId/13" value="LandCoverFraction_Forest">
 </div>
-<div style="float:left">
+<div style="float:left; display:none"><!-- show when not timeline which used v2/observation API -->
 Property<br>
 <input type="text" id="propertyInput" placeholder="e.g., <-" value="->*">
 </div>
-<div style="float:left">
-&nbsp;
+<div style="float:left; padding-left:10px; padding-top:13px">
 <button id="downloadButton" style="float:right;background-color:#999;">Download</button>
 <button id="loadDataButton" style="margin-right:10px">View JSON</button>
 </div>
 <div style="clear:both"></div>
 </div>
-<div id="resultContainer">JSON Output from Google Data Commons API</div>
+<div id="resultContainer" style="max-height:400px;overflow-y:scroll;">JSON Output from Google Data Commons API</div>
 <br>
-<h3 id="api-examples" tabindex="-1"><a class="observablehq-header-anchor" href="#api-examples">API Examples</a></h3>
-<p><strong>To find the properties related to <code>geoId/06</code></strong><br>
-Display a list of properties using the symbol <code>-&gt;</code>.</p>
-<pre><code>DCID: geoId/06
-Property: -&gt;
-</code></pre>
-<p><strong>To display all the properties of JobsCreated</strong><br>
-Display all values of its properties using <code>-&gt;*</code> to indicate all records.</p>
-<pre><code>DCID: Count_Jobs_EconomicDevelopmentAdministration_JobsCreated
-Property: -&gt;*
-</code></pre>
-<p><strong>To display <code>nearbyPlaces</code> and <code>landArea</code> of Georgia</strong><br>
-Pass a list in the properties column.</p>
-<pre><code>DCID: geoID/13
-Property: -&gt;[nearbyPlaces, landArea]
-</code></pre>
+<!--
+### API Examples
+
+**To find the properties related to `geoId/06`**  
+Display a list of properties using the symbol `->`.
+
+    DCID: geoId/06
+    Property: ->
+
+
+**To display all the properties of JobsCreated**  
+Display all values of its properties using `->*` to indicate all records.
+
+    DCID: Count_Jobs_EconomicDevelopmentAdministration_JobsCreated
+    Property: ->*
+
+
+**To display `nearbyPlaces` and `landArea` of Georgia**  
+Pass a list in the properties column.
+
+    DCID: geoID/13
+    Property: ->[nearbyPlaces, landArea]
+-->
+<h2 id="nodejs" tabindex="-1"><a class="observablehq-header-anchor" href="#nodejs">NodeJS</a></h2>
+<p>Yarn Build into <a href="../../dist/jobs/">dist/jobs folder</a></p>
+<p>The client-side version of the following resides within index.html and uses<br>
+<a href="../../docs/components/data-loader-earth.js">components/data-loader-earth.js</a>.</p>
 <!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
 -->
-<div id="cell-4639bce9" class="observablehq observablehq--block"></div>
-<div id="cell-b85bc961" class="observablehq observablehq--block"></div>
-<div id="cell-1a028a3e" class="observablehq observablehq--block"></div>
-<div id="cell-fddc5e6c" class="observablehq observablehq--block"></div>
+<div id="cell-07fbe3a5" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
 <div><style>#observablehq-footer{margin-top:40px;border-top:1px solid #ccc;padding-top:10px;}</style>Built with <a href="https://observablehq.com" target="_blank">Observable</a> and <a href="https://DataCommons.org" target="_blank">Google Data Commons</a> by our <a href="/projects/">Model.earth Project Team</a>.</div>
