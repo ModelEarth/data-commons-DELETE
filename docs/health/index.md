@@ -1,5 +1,5 @@
 [Data Commons](../)
 
-# Good Health
+# Excellent Health
 
 Goal 3. 
