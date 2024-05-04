@@ -54,7 +54,7 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
 <style>
 body {
   /* find where these are being set to 20px */
-  margin: 0px !important;
+  margin: 0px; /* avoid important so .bodyLeftMargin can override */
   padding: 0px !important;
 }
 </style>
