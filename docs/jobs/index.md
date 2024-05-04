@@ -86,8 +86,8 @@ input {
 <div style="background-color: #ddd; padding:20px">
 Include a Relation Expression (property value) to call v2/node API<br>
 <span style="font-size:16px;font-family: var(--monospace);">
-->* means an out arc with all properties linked to this node.<br>
-<- means an in arc.
+->* means an 'out' arc with all the properties linked to this node.<br>
+<- means an 'in' arc.
 </span>
 </div>
 
