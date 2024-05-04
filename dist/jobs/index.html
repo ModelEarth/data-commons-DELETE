@@ -10,14 +10,14 @@
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
-<link rel="modulepreload" href="../_import/components/data_loader.095f7011.js">
+<link rel="modulepreload" href="../_import/components/data_loader.c897a99b.js">
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"><script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
 <script type="module">
 
 import {define} from "../_observablehq/client.js";
 
 define({id: "07fbe3a5", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
-const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.095f7011.js");
+const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.c897a99b.js");
   function addSuggestionToInput(suggestion, inputId) {
     document.getElementById(inputId).value = suggestion;
   }
@@ -161,6 +161,10 @@ input {
   */
 }
 </style>
+<p>Include a property value to call v2/node API</p>
+<pre><code>-&gt;*
+&lt;-
+</code></pre>
 <div class="bottomInput">
 <!-- Hid these until javascript modified -->
 <!--
@@ -188,17 +192,17 @@ input {
 -->
 <div style="float:left">
 Variable DCIDs:<br>
-<!-- Didn't work Count_Jobs_EconomicDevelopmentAdministration_JobsCreated -->
 <input type="text" id="dcidInput" placeholder="e.g., geoId/13" value="LandCoverFraction_Forest">
 </div>
-<div style="float:left; display:none"><!-- show when not timeline which used v2/observation API -->
-Property<br>
-<input type="text" id="propertyInput" placeholder="e.g., <-" value="->*">
+<div style="float:left;"><!-- show when not timeline which used v2/observation API -->
+Property (v2/node)<br>
+<input type="text" id="propertyInput" placeholder="" value="">
 </div>
 <div style="float:left; padding-left:10px; padding-top:13px">
 <button id="downloadButton" style="float:right;background-color:#999;">Download</button>
 <button id="loadDataButton" style="margin-right:10px">View JSON</button>
 </div>
+<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff" placeholder="API URL" value="" autofocus="" onfocus="this.select()">
 <div style="clear:both"></div>
 </div>
 <div id="resultContainer" style="max-height:400px;overflow-y:scroll;">JSON Output from Google Data Commons API</div>
