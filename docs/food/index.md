@@ -46,8 +46,8 @@ In the "fdc" subfolder we have two yaml samples for each of the 5 food groups (p
 
 ## Specific Food Profiles (JSON directly from FDA API)
 
-TO DO: Activate json input using parser page. [Example link](/io/template/parser/#json=https://api.nal.usda.gov/fdc/v1/food/2117388?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml) (not yet activated)
+Each food's nutrition data path is passed to our Feed-Player:
 
-[Apple](https://api.nal.usda.gov/fdc/v1/food/2117388?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
-[Spinach](https://api.nal.usda.gov/fdc/v1/food/2099349?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
-[Cheddar Cheese](/io/template/parser/#yaml=https://api.nal.usda.gov/fdc/v1/food/2015943?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
+[Apple](/feed/view/#path=https://api.nal.usda.gov/fdc/v1/food/2117388?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
+[Spinach](/feed/view/#path=https://api.nal.usda.gov/fdc/v1/food/2099349?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
+[Cheddar Cheese](/feed/view/#path=https://api.nal.usda.gov/fdc/v1/food/2015943?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml)  
