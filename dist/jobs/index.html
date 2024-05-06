@@ -94,7 +94,6 @@ return {addSuggestionToInput,loadDataCommons,displayJsonData,loadData};
 <li><a href="https://datacommons.org/browser/">Data Commons Browser</a></li>
 </ul>
 <p><a href="https://docs.datacommons.org/api/rest/v2/observation">Based on REST API v2/observation example 3</a></p>
-<p>Change the DCID <!---and Property -->below to view JSON output.</p>
 <!--
 DCID Examples: geoId/13, PowerPlant, Count\_Jobs\_EconomicDevelopmentAdministration\_JobsCreated
 -->
@@ -161,10 +160,13 @@ input {
   */
 }
 </style>
-<p>Include a property value to call v2/node API</p>
-<pre><code>-&gt;*
-&lt;-
-</code></pre>
+<div style="background-color: #ddd; padding:20px">
+Include a Relation Expression (property value) to call v2/node API<br>
+<span style="font-size:16px;font-family: var(--monospace);">
+-&gt;* means an 'out' arc with all the properties linked to this node.<br>
+&lt;- means an 'in' arc.
+</span>
+</div>
 <div class="bottomInput">
 <!-- Hid these until javascript modified -->
 <!--
@@ -196,7 +198,7 @@ Variable DCIDs:<br>
 </div>
 <div style="float:left;"><!-- show when not timeline which used v2/observation API -->
 Property (v2/node)<br>
-<input type="text" id="propertyInput" placeholder="" value="">
+<input type="text" id="propertyInput" style="font-family: var(--monospace);" placeholder="" value="">
 </div>
 <div style="float:left; padding-left:10px; padding-top:13px">
 <button id="downloadButton" style="float:right;background-color:#999;">Download</button>
