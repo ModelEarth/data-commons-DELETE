@@ -35,6 +35,12 @@
     });
   }
   waitForElm('#downloadButton').then((elm) => {
+    document.getElementById('feedplayerButton').addEventListener('click', () => {
+      const apiURL = document.getElementById('apiURL').value;
+      window.location = "/feed/view/#path=" + apiURL.replace(/&/g, encodeURIComponent("&"));
+    });
+  });
+  waitForElm('#downloadButton').then((elm) => {
     document.getElementById("downloadButton").addEventListener("click", function() {
       alert("clicked")
       const resultData = document.getElementById("resultContainer").textContent;

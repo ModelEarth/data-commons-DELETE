@@ -16,7 +16,7 @@
 
 import {define} from "../_observablehq/client.js";
 
-define({id: "07fbe3a5", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
+define({id: "6b770fad", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
 const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.c897a99b.js");
   function addSuggestionToInput(suggestion, inputId) {
     document.getElementById(inputId).value = suggestion;
@@ -58,6 +58,11 @@ const {loadDataCommons, displayJsonData} = await import("../_import/components/d
   }
   loadData();
 
+  // This code is also duplicated in index.html
+  document.getElementById('feedplayerButton').addEventListener('click', () => {
+    const apiURL = document.getElementById('apiURL').value;
+    window.location = "/feed/view/#path=" + apiURL.replace(/&/g, encodeURIComponent("&"));
+  });
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;
@@ -201,10 +206,14 @@ Property (v2/node)<br>
 <input type="text" id="propertyInput" style="font-family: var(--monospace);" placeholder="" value="">
 </div>
 <div style="float:left; padding-left:10px; padding-top:13px">
-<button id="downloadButton" style="float:right;background-color:#999;">Download</button>
-<button id="loadDataButton" style="margin-right:10px">View JSON</button>
+<button id="loadDataButton" style="float:left;margin-right:10px">View Data</button>
+<button id="downloadButton" style="float:left;background-color:#999;">Download</button>
 </div>
-<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff" placeholder="API URL" value="" autofocus="" onfocus="this.select()">
+<div style="clear:both;"></div>
+<button id="feedplayerButton" style="float:right;margin-right:10px;background-color:#555;margin-top:0px">Feed Player</button>
+<div style="overflow:auto;padding-right:6px">
+<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff;" placeholder="API URL" value="" autofocus="" onfocus="this.select()">
+</div>
 <div style="clear:both"></div>
 </div>
 <div id="resultContainer" style="max-height:400px;overflow-y:scroll;">JSON Output from Google Data Commons API</div>
@@ -239,7 +248,7 @@ Pass a list in the properties column.
 <!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
 -->
-<div id="cell-07fbe3a5" class="observablehq observablehq--block"></div>
+<div id="cell-6b770fad" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
 <div><style>#observablehq-footer{margin-top:40px;border-top:1px solid #ccc;padding-top:10px;}</style>Built with <a href="https://observablehq.com" target="_blank">Observable</a> and <a href="https://DataCommons.org" target="_blank">Google Data Commons</a> by our <a href="/projects/">Model.earth Project Team</a>.</div>

@@ -129,11 +129,15 @@ Property (v2/node)<br>
 </div>
 
 <div style="float:left; padding-left:10px; padding-top:13px">
-<button id="downloadButton" style="float:right;background-color:#999;">Download</button>
-<button id="loadDataButton" style="margin-right:10px">View JSON</button>
+<button id="loadDataButton" style="float:left;margin-right:10px">View Data</button>
+<button id="downloadButton" style="float:left;background-color:#999;">Download</button>
 </div>
 
-<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff" placeholder="API URL" value="" autofocus onfocus="this.select()">
+<div style="clear:both;"></div>
+<button id="feedplayerButton" style="float:right;margin-right:10px;background-color:#555;margin-top:0px">Feed Player</button>
+<div style="overflow:auto;padding-right:6px">
+<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff;" placeholder="API URL" value="" autofocus onfocus="this.select()">
+</div>
 
 <div style="clear:both"></div>
 
@@ -220,6 +224,11 @@ The following is only functional when built into the "dist" repo. [View built ve
   }
   loadData();
 
+  // This code is also duplicated in index.html
+  document.getElementById('feedplayerButton').addEventListener('click', () => {
+    const apiURL = document.getElementById('apiURL').value;
+    window.location = "/feed/view/#path=" + apiURL.replace(/&/g, encodeURIComponent("&"));
+  });
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;
