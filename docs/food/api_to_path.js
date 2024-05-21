@@ -1,7 +1,5 @@
 //import { displayJsonData } from '../data_loader.js';
 
-console.log("robin loaded");
-
 async function loadDataCommonsbyId(apiKey, fdcid) 
 { 
       const url =`https://api.nal.usda.gov/fdc/v1/food/${fdcid}?api_key=${apiKey}`;
