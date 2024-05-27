@@ -1,9 +1,11 @@
 export async function loadDataCommons(apiKey, dcid, property) 
 { 
-      //const url = `https://api.datacommons.org/v2/node?key=${apiKey}&nodes=${dcid}&property=${property}`;
-      
-      // Example of pulling for all years
-      const url =`https://api.datacommons.org/v2/observation?key=${apiKey}&date=2015&date=LATEST&entity.expression=geoId%2F06%3C-containedInPlace%2B%7BtypeOf%3ACounty%7D&select=date&select=entity&select=value&select=variable&variable.dcids=${dcid}`; // variable.dcids=Count_Person
+      let url = `https://api.datacommons.org/v2/node?key=${apiKey}&nodes=${dcid}&property=${property}`;
+      if (!property) { // Use v2/observation
+        // Example of pulling for all years
+        url =`https://api.datacommons.org/v2/observation?key=${apiKey}&date=2015&date=LATEST&entity.expression=geoId%2F06%3C-containedInPlace%2B%7BtypeOf%3ACounty%7D&select=date&select=entity&select=value&select=variable&variable.dcids=${dcid}`; // variable.dcids=Count_Person
+      }
+      $('#apiURL').val(url);
       const response = await fetch(url);
       return await response.json();
 }

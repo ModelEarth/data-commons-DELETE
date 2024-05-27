@@ -1,5 +1,3 @@
 [Data Commons](../)
 
-# Placeholder
-
-Goal . 
+# Abundant Wildlife

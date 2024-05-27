@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Good Paying Jobs | Data Commons</title>
+<title>Great Jobs | Data Commons</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../_observablehq/theme-air,near-midnight.css">
@@ -10,14 +10,14 @@
 <link rel="modulepreload" href="../_observablehq/client.js">
 <link rel="modulepreload" href="../_observablehq/runtime.js">
 <link rel="modulepreload" href="../_observablehq/stdlib.js">
-<link rel="modulepreload" href="../_import/components/data_loader.095f7011.js">
+<link rel="modulepreload" href="../_import/components/data_loader.c897a99b.js">
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"><script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
 <script type="module">
 
 import {define} from "../_observablehq/client.js";
 
-define({id: "07fbe3a5", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
-const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.095f7011.js");
+define({id: "6b770fad", outputs: ["addSuggestionToInput","loadDataCommons","displayJsonData","loadData"], body: async () => {
+const {loadDataCommons, displayJsonData} = await import("../_import/components/data_loader.c897a99b.js");
   function addSuggestionToInput(suggestion, inputId) {
     document.getElementById(inputId).value = suggestion;
   }
@@ -58,6 +58,11 @@ const {loadDataCommons, displayJsonData} = await import("../_import/components/d
   }
   loadData();
 
+  // This code is also duplicated in index.html
+  document.getElementById('feedplayerButton').addEventListener('click', () => {
+    const apiURL = document.getElementById('apiURL').value;
+    window.location = "/feed/view/#path=" + apiURL.replace(/&/g, encodeURIComponent("&"));
+  });
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;
@@ -83,8 +88,8 @@ return {addSuggestionToInput,loadDataCommons,displayJsonData,loadData};
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
 <p><a href="../../">UN Goal Timelines</a> - <a href="../">Data Commons</a></p>
-<h1 id="good-paying-jobs" tabindex="-1"><a class="observablehq-header-anchor" href="#good-paying-jobs">Good Paying Jobs</a></h1>
-<p>Goal 1. No Poverty - Good Paying Jobs and Assistance</p>
+<h1 id="great-jobs" tabindex="-1"><a class="observablehq-header-anchor" href="#great-jobs">Great Jobs</a></h1>
+<p>Goal 1. Good Paying Jobs and Assistance - No Poverty</p>
 <h2 id="google-api-via-javascript" tabindex="-1"><a class="observablehq-header-anchor" href="#google-api-via-javascript">Google API via Javascript</a></h2>
 <p>Using <a href="../../docs/jobs/">Javascript</a> and <a href="../../dist/jobs/">NodeJS</a> to call Google Data Commons API.</p>
 <p>You can find the DCID and property value using:</p>
@@ -94,11 +99,10 @@ return {addSuggestionToInput,loadDataCommons,displayJsonData,loadData};
 <li><a href="https://datacommons.org/browser/">Data Commons Browser</a></li>
 </ul>
 <p><a href="https://docs.datacommons.org/api/rest/v2/observation">Based on REST API v2/observation example 3</a></p>
-<p>Change the DCID <!---and Property -->below to view JSON output.</p>
 <!--
 DCID Examples: geoId/13, PowerPlant, Count\_Jobs\_EconomicDevelopmentAdministration\_JobsCreated
 -->
-<p><strong>variable.dcids:</strong> Count_Person, LandCoverFraction_Forest</p>
+<p><strong>variable.dcids:</strong> Count_Person, Count_Farm, LandCoverFraction_Forest</p>
 <style>
 body {
   font-family: 'Arial', sans-serif;
@@ -161,6 +165,13 @@ input {
   */
 }
 </style>
+<div style="background-color: #ddd; padding:20px">
+Include a [Relation Expression](https://docs.datacommons.org/api/rest/v2#relation-expressions) (property value) to call v2/node API<br>
+<span style="font-size:16px;font-family: var(--monospace);">
+-&gt;* means an 'out' arc with all the properties linked to this node.<br>
+&lt;- means an 'in' arc.
+</span>
+</div>
 <div class="bottomInput">
 <!-- Hid these until javascript modified -->
 <!--
@@ -188,16 +199,20 @@ input {
 -->
 <div style="float:left">
 Variable DCIDs:<br>
-<!-- Didn't work Count_Jobs_EconomicDevelopmentAdministration_JobsCreated -->
 <input type="text" id="dcidInput" placeholder="e.g., geoId/13" value="LandCoverFraction_Forest">
 </div>
-<div style="float:left; display:none"><!-- show when not timeline which used v2/observation API -->
-Property<br>
-<input type="text" id="propertyInput" placeholder="e.g., <-" value="->*">
+<div style="float:left;"><!-- show when not timeline which used v2/observation API -->
+Property (v2/node)<br>
+<input type="text" id="propertyInput" style="font-family: var(--monospace);" placeholder="" value="">
 </div>
 <div style="float:left; padding-left:10px; padding-top:13px">
-<button id="downloadButton" style="float:right;background-color:#999;">Download</button>
-<button id="loadDataButton" style="margin-right:10px">View JSON</button>
+<button id="loadDataButton" style="float:left;margin-right:10px">View Data</button>
+<button id="downloadButton" style="float:left;background-color:#999;">Download</button>
+</div>
+<div style="clear:both;"></div>
+<button id="feedplayerButton" style="float:right;margin-right:10px;background-color:darkblue;margin-top:0px">Feed Player</button>
+<div style="overflow:auto;padding-right:6px">
+<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff;" placeholder="API URL" value="" autofocus="" onfocus="this.select()">
 </div>
 <div style="clear:both"></div>
 </div>
@@ -233,7 +248,7 @@ Pass a list in the properties column.
 <!--
 The following is only functional when built into the "dist" repo. [View built version](../../dist/jobs/).
 -->
-<div id="cell-07fbe3a5" class="observablehq observablehq--block"></div>
+<div id="cell-6b770fad" class="observablehq observablehq--block"></div>
 </main>
 <footer id="observablehq-footer">
 <div><style>#observablehq-footer{margin-top:40px;border-top:1px solid #ccc;padding-top:10px;}</style>Built with <a href="https://observablehq.com" target="_blank">Observable</a> and <a href="https://DataCommons.org" target="_blank">Google Data Commons</a> by our <a href="/projects/">Model.earth Project Team</a>.</div>

@@ -5,14 +5,11 @@
 
 [Google UN Data Commons Nav for API](https://datacommons.org/tools/statvar#s=dc%2Fs%2FUnitedNationsUn&d=dc%2Fd%2FUnitedNationsUn_SdgIndicatorsDatabase) - Widen screen to explore root of 17 UN Goals
 
+TO DO: Load the nav tree with Python via the GDC API, parse into a simple json file containing API variables for timeline datasets. See GDC API calls in our [forest timeline data feed sample](../feed/view/#feed=LandCoverFraction_Forest).
 
-TO DO: Load the nav tree with Python via the GDC API, parse into a simple json file and load into HTML for navigating timelines.
+TO DO: Save timeline titles from GDC API as a json file using [Observable Data Loader](https://observablehq.com/framework/loaders). See our [Weather Data Loader notes](docs/air/). Save in a new folder at data-commons/docs/google
 
-TO DO: Save timeline titles from GDC API cascading navigation from a static json file using [Observable Data Loader](https://observablehq.com/framework/loaders) ([See our Weather Data Loader notes](docs/air/)). Store in a new folder at data-commons/docs/google
-
-TO DO: Create a simplified UN Goals navigation using the cached titles json file. The Data Loader will send it to docs/.observablehq/cache/google/data
-
-TO DO: Display our [US Industry Timelines](../data-pipeline/timelines/) within the same timeline process
+TO DO: Display our [US Industry Timelines](../data-pipeline/timelines/) within the same timeline display process.
 
 <!--[worldbank.org indicators](https://github.com/phiresky/world-development-indicators-sqlite/)-->
 
@@ -21,6 +18,15 @@ TO DO: Display our [US Industry Timelines](../data-pipeline/timelines/) within t
 -->
 Moonshots: [Push EPA data to GDC and Reuse GDC LLM for Visual Searches](../../localsite/info/data/datacommons/)
 
+## Making Updates
+
+After [creating your webroot](../../localsite/start/steps/) and pulling down [data-commons](https://github.com/modelearth/data-commons), edit pages and build your static site to update the local "dist" folder.
+
+	cd data-commons
+	yarn build	
+
+Visit the following to view built: <http://localhost:8887/data-commons/dist> and source <http://localhost:8887/data-commons/docs>  
+The "dist" folder is only deployed live by Loren to avoid file conflicts.
 
 ## UN Sustainable Development Goals</h2>
 

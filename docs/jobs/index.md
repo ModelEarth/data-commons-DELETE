@@ -1,6 +1,6 @@
 [UN Goal Timelines](../../) - [Data Commons](../)
 
-# Good Paying Jobs
+# Great Jobs
 Goal 1. Good Paying Jobs and Assistance - No Poverty
 
 ## Google API via Javascript
@@ -15,11 +15,10 @@ You can find the DCID and property value using:
 
 [Based on REST API v2/observation example 3](https://docs.datacommons.org/api/rest/v2/observation)
 
-Change the DCID <!---and Property -->below to view JSON output.
 <!--
 DCID Examples: geoId/13, PowerPlant, Count\_Jobs\_EconomicDevelopmentAdministration\_JobsCreated
 -->
-**variable.dcids:** Count\_Person, LandCoverFraction\_Forest
+**variable.dcids:** Count\_Person, Count\_Farm, LandCoverFraction\_Forest
 
 <style>
 body {
@@ -84,7 +83,13 @@ input {
 }
 </style>
 
-
+<div style="background-color: #ddd; padding:20px">
+Include a [Relation Expression](https://docs.datacommons.org/api/rest/v2#relation-expressions) (property value) to call v2/node API<br>
+<span style="font-size:16px;font-family: var(--monospace);">
+->* means an 'out' arc with all the properties linked to this node.<br>
+<- means an 'in' arc.
+</span>
+</div>
 
 <div class="bottomInput">
 
@@ -115,18 +120,23 @@ input {
 
 <div style="float:left">
 Variable DCIDs:<br>
-<!-- Didn't work Count_Jobs_EconomicDevelopmentAdministration_JobsCreated -->
 <input type="text" id="dcidInput" placeholder="e.g., geoId/13" value="LandCoverFraction_Forest">
 </div>
 
-<div style="float:left; display:none"><!-- show when not timeline which used v2/observation API -->
-Property<br>
-<input type="text" id="propertyInput" placeholder="e.g., <-" value="->*">
+<div style="float:left;"><!-- show when not timeline which used v2/observation API -->
+Property (v2/node)<br>
+<input type="text" id="propertyInput" style="font-family: var(--monospace);" placeholder="" value="">
 </div>
 
 <div style="float:left; padding-left:10px; padding-top:13px">
-<button id="downloadButton" style="float:right;background-color:#999;">Download</button>
-<button id="loadDataButton" style="margin-right:10px">View JSON</button>
+<button id="loadDataButton" style="float:left;margin-right:10px">View Data</button>
+<button id="downloadButton" style="float:left;background-color:#999;">Download</button>
+</div>
+
+<div style="clear:both;"></div>
+<button id="feedplayerButton" style="float:right;margin-right:10px;background-color:darkblue;margin-top:0px">Feed Player</button>
+<div style="overflow:auto;padding-right:6px">
+<input type="text" id="apiURL" class="textInput" style="width:100%;max-width:1000px;color:#555;background-color:rgba(0, 0, 0, 0);border:1px solid #fff;" placeholder="API URL" value="" autofocus onfocus="this.select()">
 </div>
 
 <div style="clear:both"></div>
@@ -214,6 +224,11 @@ The following is only functional when built into the "dist" repo. [View built ve
   }
   loadData();
 
+  // This code is also duplicated in index.html
+  document.getElementById('feedplayerButton').addEventListener('click', () => {
+    const apiURL = document.getElementById('apiURL').value;
+    window.location = "/feed/view/#path=" + apiURL.replace(/&/g, encodeURIComponent("&"));
+  });
   // Download JSON button click event
   document.getElementById("downloadButton").addEventListener("click", function() {
     const resultData = document.getElementById("resultContainer").textContent;
