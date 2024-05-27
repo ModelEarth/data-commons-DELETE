@@ -38,6 +38,9 @@ function loadDataFood() {
         console.log(ids);
         console.log(food_name);
         console.log(foodNutrients);
+
+        $("#resultJson").html(JSON.stringify(foodNutrients));
+
         console.log("---------")
       }).catch(error => {
         console.error('Error loading data:', error);

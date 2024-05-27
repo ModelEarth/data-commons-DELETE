@@ -42,9 +42,13 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
     </style>
 
   <div class="search-container">
-    <input type="text" id="search-input" class="search-input" placeholder="Enter your search term">
+    <input type="text" id="search-input" class="search-input" placeholder="Enter your food search term">
     <button onclick="handleSearch()" class="search-button">Search</button>
 </div>
+
+TO DO: Use the following json from loadDataFood() to display a <a href="https://model.earth/nutrition-label/dist/demo/demo.html">Nutritionix Label</a> using <a href="https://github.com/ModelEarth/nutrition-label">our fork</a><br>
+<div id="resultJson" style="max-height:150px;overflow-y:scroll;border:1px solid #ccc; padding:10px"></div>
+<br><br>
 
 <script type="text/javascript" src="../food/api_to_path.js"></script>
 <script>
@@ -62,15 +66,18 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
           const food_name = data.foods[0].description;
           console.log("Food : {}, Id : {}", food_name, id);
           link = `/feed/view/#path=https://api.nal.usda.gov/fdc/v1/food/${id}?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml`;
+
+          // TO DO: This could be secondary. Stay in the current page to display the label.
           window.location.href = link;
         } catch (error) {
           alert(error)
         }
     }
+    loadDataFood();
 </script>
 
-<div id="readmeDiv"></div>
 
+<div id="readmeDiv"></div>
 
 </div>
 

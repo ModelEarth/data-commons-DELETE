@@ -6,8 +6,6 @@ Goal 2. Healthy Food, No Hunger - [balance repo](/balance/)
 
 ## Food Nutrition Labels (YAML locally)
 
-TO DO: Integrate with [Nutritionix Label](https://dev2.nutritionix.com/html/label-jquery-plugin/demo/2018-version/demo.html)
-
 Source: [USDA API](https://fdc.nal.usda.gov/api-guide.html)
 
 In the "fdc" subfolder we have two yaml samples for each of the 5 food groups (protein, dairy, vegetable, fruit, grains)
