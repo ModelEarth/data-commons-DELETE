@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Data Commons</title>
+<title>Food</title>
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,27 +12,13 @@
 <script>
 loadMarkdown("index.md", "readmeDiv", "_parent");
 </script>
-
-<style>
-</style>
 </head>
 
 <body>
   
-
 <div class="content contentpadding">
-  <div id="readmeDiv"></div>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Example</title>
+  
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
         .search-container {
             margin-bottom: 20px;
         }
@@ -54,12 +40,12 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
             background-color: #218838;
         }
     </style>
-</head>
-<body>
+
   <div class="search-container">
     <input type="text" id="search-input" class="search-input" placeholder="Enter your search term">
     <button onclick="handleSearch()" class="search-button">Search</button>
 </div>
+
 <script type="text/javascript" src="../food/api_to_path.js"></script>
 <script>
     async function loadDataCommons_search(apiKey,keyword) { 
@@ -76,14 +62,15 @@ loadMarkdown("index.md", "readmeDiv", "_parent");
           const food_name = data.foods[0].description;
           console.log("Food : {}, Id : {}", food_name, id);
           link = `/feed/view/#path=https://api.nal.usda.gov/fdc/v1/food/${id}?api_key=bLecediTVa2sWd8AegmUZ9o7DxYFSYoef9B4i1Ml`;
+          window.location.href = link;
         } catch (error) {
-          console.log(error)
+          alert(error)
         }
-        window.location.href = link;
     }
 </script>
-</body>
-</html>
+
+<div id="readmeDiv"></div>
+
 
 </div>
 

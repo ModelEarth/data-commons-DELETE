@@ -33,9 +33,12 @@ function loadDataFood() {
         //displayJsonData(data)
         const ids = data.map(item => item.fdcId);
         const food_name = data.map(item => item.description);
+        const foodNutrients = data.map(item => item.foodNutrients);
       // Log the list of fdcId values
         console.log(ids);
-        console.log(food_name)
+        console.log(food_name);
+        console.log(foodNutrients);
+        console.log("---------")
       }).catch(error => {
         console.error('Error loading data:', error);
     });
@@ -176,7 +179,8 @@ async function get_food_map(commonCarbs) {
   return foodMap;
 }
 
-const foodMap = await get_food_map(commonCarbs);
+//const foodMap = await get_food_map(commonCarbs); //Error: await is only valid in async functions and the top level bodies of modules
+const foodMap = get_food_map(commonCarbs);
 console.log(foodMap);
 
 function food_to_webpage(name,fdcid){
